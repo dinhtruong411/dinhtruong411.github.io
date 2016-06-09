@@ -14,6 +14,7 @@ body{
     width:500px;
     clear:both;
     height:715px;
+    margin: 0 auto;
 }
 .prf_img{
     float: left;
