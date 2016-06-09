@@ -1,0 +1,34 @@
+﻿/*Bai tap 1: Player Profile CSS*/
+body{
+    font-family: "Georgia", "Times New Roman", "Times", "serif";
+    align:center;
+}
+.prf_title{
+    background-image: url(title_background.gif);
+    background-repeat: repeat-x;
+    font-size:25px;
+    font-weight:bold;
+}
+.main{
+    border:1px solid #ECECEC;
+    width:500px;
+    clear:both;
+    height:715px;
+}
+.prf_img{
+    float: left;
+    height:100px;
+    width:90px;
+}
+.facts_content{
+    width:450px;
+    float: right;
+    margin-bottom:20px;
+}
+.cmt{
+margin-left:2px;
+margin-right:0px;
+margin-bottom:0px;
+background-color: #ececec;
+clear:both;
+}
