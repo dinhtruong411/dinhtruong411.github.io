@@ -1,0 +1,85 @@
+﻿/*Bai 2 RUNSYSTEM CSS*/
+body{
+font-family: Verdana, Arial, Helvetica, Sans-serif;
+}
+p{
+text-align:justify;
+color: #FFFFFF;
+font-size: 14px;
+}
+h2{
+font-size: 18px;
+color:yellow;
+}
+#container{
+width:1200px;
+margin: 0 auto;
+}
+#header{
+background-color:#2D2F35; 
+border-bottom: 2px solid #474A51;
+height:111px;
+}
+
+#next_header{
+background-color: #2D2F35;
+height:300px; 
+width:1200px; 
+background-image: url(bg_home_intro.gif);
+background-repeat: repeat-x;
+border-bottom: 2px solid #474A51;
+}
+#image_bg{
+background-color: #2D2F35;
+width:1200px;
+height:127px;
+border-bottom: 2px solid #474A51;
+}
+#information{
+position: relative;
+background-color: #2D2F35;
+border-bottom: 2px solid #474A51;
+width:1200px;
+height: 300px;
+}
+.information{
+width:400px;
+height:300px;
+float:left;
+margin-left:100px;
+}
+.img_next_header{
+background-image: url(bg_home_intro.gif);
+height:300px; 
+width:500px; 
+float: right;
+margin-right:100px;
+}
+.image_show{
+margin: 0 auto;
+width:920px;
+height:127px;
+}
+.image{
+position:relative;
+margin: 15px 5px 10px 5px;
+width: 220px;
+height: 102px;
+float: left;
+}
+.number_icon{
+position: absolute;
+top:0px;
+right:0px;
+}
+.inf_image1{
+position: absolute;
+top: 150px;
+left: 400px;
+}
+.inf_image2{
+position: absolute;
+top: 30px;
+left: 700px;
+}
+
