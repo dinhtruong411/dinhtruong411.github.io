@@ -42,11 +42,31 @@ border-bottom: 2px solid #474A51;
 width:1200px;
 height: 300px;
 }
+#footer{
+background: #24262A url(bg_footer.gif) center center no-repeat;
+width:1200px;
+height:75px;
+margin-top:-10px;
+}
 .information{
 width:400px;
 height:300px;
 float:left;
 margin-left:100px;
+}
+.information1{
+width:400px;
+height:300px;
+float:left;
+margin-left:100px;
+background: url(home_services_bg_design.gif) right bottom no-repeat;
+}
+.information2{
+width:400px;
+height:300px;
+float:right;
+margin-right:100px;
+background: url(home_services_bg_marketing.gif) top left no-repeat;
 }
 .img_next_header{
 background-image: url(bg_home_intro.gif);
@@ -72,14 +92,7 @@ position: absolute;
 top:0px;
 right:0px;
 }
-.inf_image1{
-position: absolute;
-top: 150px;
-left: 400px;
+.footer_font{
+text-align:center;
+font-size:10px;
 }
-.inf_image2{
-position: absolute;
-top: 30px;
-left: 700px;
-}
-
