@@ -1,6 +1,7 @@
 ﻿/*Bai 2 RUNSYSTEM CSS*/
 body{
 font-family: Verdana, Arial, Helvetica, Sans-serif;
+background-color: #2D2F35;
 }
 p{
 text-align:justify;
@@ -14,6 +15,7 @@ color:yellow;
 #container{
 width:1200px;
 margin: 0 auto;
+border: 1px solid #474A51;
 }
 #header{
 background-color:#2D2F35; 
