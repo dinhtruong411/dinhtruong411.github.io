@@ -1,0 +1,44 @@
+﻿/*Bai 3 CSS*/
+body{
+font-family: arial;
+font-size:0.6875em;
+}
+a: hover, a: focus{
+color: #ff8700;
+text-decoration: none;
+text-shadow: 0 0 6px #ffffff;
+}
+h3{
+text-align:justify;
+color: #FFFFFF;
+font-size: 14px;
+}
+#container{
+position: relative;
+background-color:#000000;
+width:1000px;
+margin: 0 auto;
+}
+#left_info{
+width:700px;
+}
+#right_info{
+position:absolute;
+top: 20px;
+left:700px;
+width: 300px;
+padding: 80px 50px 50px 50px;
+background-color:#232326;
+}
+#link_area{
+}
+.gr_img{
+}
+.content{
+text-align: justify;
+}
+.upper_left_info{
+
+}
+.lower_left_info{
+}
