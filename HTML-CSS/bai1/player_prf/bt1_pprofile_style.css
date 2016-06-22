@@ -1,0 +1,76 @@
+﻿/*Bai tap 1: Player Profile CSS*/
+body{
+    font-family: "Georgia", "Times New Roman", "Times", "serif";
+    font-size: 16px;
+    align:center;
+}
+ul {
+    list-style-image: url('star.gif');
+}
+.prf_title{
+    background-image: url(title_background.gif);
+    background-repeat: repeat-x;
+    font-size:17px;
+    font-weight:bold;
+}
+.main{
+    border:1px solid #ECECEC;
+    width:500px;
+    clear:both;
+    height:750px;
+    margin: 0 auto;
+}
+.poster_name{
+color: blue;
+}
+.prf_img{
+    float: left;
+    height:100px;
+    width:90px;
+}
+.prf_info{
+    height: 100px;
+    width: 400px;
+    margin-left:100px;
+    overflow: scroll;
+}
+.facts_content{
+    width:465px;
+    float: right;
+    margin-bottom:40px;
+    margin-top: -20px;
+}
+.cmt{
+    margin-left:3px;
+    margin-right:0px;
+    margin-bottom:0px;
+    background-color: #ececec;
+    clear:both;
+    font-size: 13px;
+}
+.cmt_info{
+    margin-left:20px;
+    height=14px;
+    font-size: 13px;
+}
+.left_cmt{
+    float:left;
+    width:117px;
+    margin-top: -10px;
+    margin-left:3px;
+}
+.right_cmt{
+    float:right;
+    width:380px;
+    margin-top: -10px;
+}
+.form_style{
+    margin-bottom:7px;
+}
+.cmt_input{
+    height:100px;
+    width:375px;
+}
+.cmt_area{
+    margin-top: 40px;
+}
