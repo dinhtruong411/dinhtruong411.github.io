@@ -15,6 +15,8 @@ body {
 	font-size: 10px;
 	background-color:#292728;
 }
+
+/*-----------------------------------*/
 #container{
 	width: 1000px;
 	margin: 0 auto;
@@ -31,6 +33,8 @@ body {
 	width:652px;
 	background-color: #fff;
 }
+
+/*---Style cho phần search---*/
 #searchbar button{
 	background-image: url('images/search_bg.png');
 	background-repeat: repeat-x;
@@ -38,6 +42,12 @@ body {
 	font-size: 12px;
 	border: none;
 }
+#searchbar input[type=text]{
+    width: 140px;
+    margin: 5px 0px 0px 15px;
+}
+
+/*---Style cho phần nội dung---*/
 .right{
 	float: right;
 }
@@ -93,8 +103,11 @@ body {
 	padding: 5px 0px 5px 10px;
 	margin: -5px 0px 5px 0px;
 }
+.little-title{
+	position: relative;
+	clear: both;
+}
 .blue-widget h3{
-        position: relative;
 	background-image: url('images/pa.jpg');
 	background-repeat: repeat-x;
 	color: #1d78c9;
@@ -166,7 +179,7 @@ body {
 	font-size: 11px;
 	margin-top: 35px;
 }
-.right .content{
+.blue-widget .content{
 	position: relative;
 }
 .rating{
@@ -182,4 +195,43 @@ body {
 }
 .rate25star{
 	background-position: 0px -66px;
+}
+
+/*---Style phần Footer---*/
+#footer{
+	width: 1000px;
+	height: 100px;
+	margin: 30px 0px 10px 0px;
+	border-top: 1px dotted #fff;
+	float: inherit;
+}
+.image-title{
+	margin: 15px 55px 10px 55px;
+	text-align: center;
+	float: left;
+	color: #fff;
+}
+.footer-info{
+	position: relative;
+	background-color: #fff;
+	width: 1000px;
+	height: 40px;
+	color: #1d78c9;
+	text-align: center;
+	padding-top: 5px;
+	float: inherit;
+}
+.footer-info span{
+	position: absolute;
+	right: 15px;
+	top: 16px;
+}
+.image-title a:link,.image-title a:visited {
+	color: #fff;
+	text-decoration: none;
+}
+.image-title a:hover,.image-title a:focus {
+	colorL: #fff;
+	text-decoration: none;
+	text-shadow: 0 0 6px #fff;
 }

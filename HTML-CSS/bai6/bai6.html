@@ -3,7 +3,7 @@
 <head>
     <title>Bai 6</title>
     <link rel="stylesheet" type="text/css" href="bai6_css.css"/>
-    <script language="JavaScript" src="bai6_js.js"></script>
+    <script type="text/javascript" src="bai6_js.js"></script>
 </head>
 <body>
 <div id="container">
@@ -43,7 +43,7 @@
         </div>	
         <div class="left blue-widget">
             <h2>TOP 3 MOVIE TRAILER</h2>
-            <h3 onclick="toggleContent(1)">The House Bunny (M)<div id="arrow-1" class="open-arrow"></div></h3>
+            <div class="little-title" onclick="toggleContent(1)"><h3>The House Bunny (M)</h3><div id="arrow-1" class="open-arrow"></div></div>
             <div class="content" id="little-content-1">
                 <img class="left" src="images/img-3.jpg" alt="img-3"/>
                 <p class="right">
@@ -53,7 +53,7 @@
                     <a href="bai6.html"><b>Watch Now</b></a>
                 </div>
             </div>
-            <h3 onclick="toggleContent(2)">Eagle Eye (M)<div id="arrow-2" class="close-arrow"></div></h3>
+            <div class="little-title" onclick="toggleContent(2)"><h3>Eagle Eye (M)</h3><div id="arrow-2" class="close-arrow"></div></div>
             <div class="content hide-content" id="little-content-2">
                 <img class="left" src="images/img-3.jpg" alt="img-3"/>
                 <p class="right">
@@ -63,7 +63,7 @@
                     <a href="bai6.html"><b>Watch Now</b></a>
                 </div>
             </div>
-            <h3 onclick="toggleContent(3)">Journey To The Center Of The Earth (PG)<div id="arrow-3" class="close-arrow"></div></h3>
+            <div class="little-title" onclick="toggleContent(3)"><h3>Journey To The Center Of The Earth (PG)</h3><div id="arrow-3" class="close-arrow"></div></div>
             <div class="content hide-content" id="little-content-3">
                 <img class="left" src="images/img-3.jpg" alt="img-3"/>
                 <p class="right">
@@ -89,7 +89,7 @@
             <h2>MOVIE REVIEWS</h2>
             <div class="content">
                 <h3>Eagle Eye</h3>
-                <div class="rating rate2star"></div>
+                <div id="rating-1" onmousemove="ratingEffect(event,1)" class="rating rate2star"></div>
                 <img src="images/img-5.jpg" alt="img-5"/>
                 <p class="right">
                     SHIA LaBeouf hits the ground running in Eagle Eye, an against the clock conspiracy thriller with a timely technological t...
@@ -101,7 +101,7 @@
             <hr/>
             <div class="content">
                 <h3>House Bunny</h3>
-                <div class="rating rate25star"></div>
+                <div id="rating-2" onmousemove="ratingEffect(event,2)" class="rating rate25star"></div>
                 <img src="images/img-4.jpg" alt="img-4"/>
                 <p class="right">
                     IF YOU left legally Blonde and Revenge Of The Nerds DVDs in a darkened room for long enough, something like The House Bun...
@@ -110,21 +110,42 @@
                     <a href="bai6.html"><b>View Trailer</b></a>
                 </div>
             </div>
-<div class="local-cinema">
-<a href="bai6.html"><b class="left">Local Cinema listings</b></a>
-<span class="right">+ MORE MOVIES</span>
-</div>
-
-</div>
-
-
-
-
-
-
-
+            <div class="local-cinema">
+                <a href="bai6.html"><b class="left">Local Cinema listings</b></a>
+                <span class="right">+ MORE MOVIES</span>
+            </div>
+        </div>
+        <div id="footer">
+            <div class="image-title">
+                <a href="bai6.html"><img src="images/phone.png" alt="phone"><br/><span>News on your mobile</span></a>
+            </div>
+            <div class="image-title">
+                <a href="bai6.html"><img src="images/rss.png" alt="rss"><br/><span>RSS feeds</span></a>
+            </div>
+            <div class="image-title">
+                <a href="bai6.html"><img src="images/mail.png" alt="mail"><br/><span>Newsletters</span></a>
+            </div>
+            <div class="image-title">
+                <a href="bai6.html"><img src="images/imo.png" alt="imo"><br/><span>Send your news Stories</span></a>
+            </div>
+            <div class="image-title">
+                <a href="bai6.html"><img src="images/camera.png" alt="camera"><br/><span>Send your news photos</span></a>
+            </div>
+            <div class="footer-info">
+                <a href="#">Help</a>|
+                <a href="#">Contact Us</a>|
+                <a href="#">Advertise With Us</a>|
+                <a href="#">Job Opportunities</a>|
+                <a href="#">terms & Conditions</a>|
+                <a href="#">Privacy Policy</a>|
+                <a href="#">Accessibility</a>|
+                <a href="#">Sitemap</a>|
+                <a href="#">News Headlines from Our Partners</a>
+                <p>Copyright 2008 news Limited. All times AEST (GMT +10).</p>
+                <a href="#"><span>Back to top</span></a>
+            </div>
+        </div>
     </div>
-
 </div>
 </body>
 </html>
