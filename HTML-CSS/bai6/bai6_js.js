@@ -1,6 +1,6 @@
 ﻿/*Bai 6 Javascript*/
 /*
-toggleContent
+toggleContent: toggle content when title has been clicked
 */
 
 function toggleContent(id) {
