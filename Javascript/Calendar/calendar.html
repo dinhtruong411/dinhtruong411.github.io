@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Calendar</title>
+    <link rel="stylesheet" type="text/css" href="calendar_css.css"/>
+    <script type="text/javascript" src="calendar_js.js"></script>
+</head>
+<body>
+    <form>
+        <input type="text"/>
+    </form><br/>
+    <table>
+        <tr>
+            <th><button id="prevYearButton" onClick="displayMonthCustoms(-1, 0)"> << </button></th>
+            <th><button id="prevMonthButton" onClick="displayMonthCustoms(0, -1)"> < </button></th>
+            <th colspan="2"><select ></select></th>
+            <th><select ></select></th>
+            <th><button id="nextMonthButton" onClick="displayMonthCustoms(0, 1)"> > </button></th>
+            <th><button id="nextYearButton" onClick="displayMonthCustoms(1, 0)"> >> </button></th>
+        </tr>
+        <tr>
+            <th>Sun</th>
+            <th>Mon</th>
+            <th>Tue</th>
+            <th>Wed</th>
+            <th>Thu</th>
+            <th>Fri</th>
+            <th>Sat</th>
+        </tr>
+        <tr>
+            <td id="day0" class="sun"></td>
+            <td id="day1" class="mon"></td>
+            <td id="day2" class="tue"></td>
+            <td id="day3" class="wed"></td>
+            <td id="day4" class="thu"></td>
+            <td id="day5" class="fri"></td>
+            <td id="day6" class="sat"></td>
+        </tr>
+        <tr>
+            <td id="day7" class="sun"></td>
+            <td id="day8" class="mon"></td>
+            <td id="day9" class="tue"></td>
+            <td id="day10" class="wed"></td>
+            <td id="day11" class="thu"></td>
+            <td id="day12" class="fri"></td>
+            <td id="day13" class="sat"></td>
+        </tr>
+        <tr>
+            <td id="day14" class="sun"></td>
+            <td id="day15" class="mon"></td>
+            <td id="day16" class="tue"></td>
+            <td id="day17" class="wed"></td>
+            <td id="day18" class="thu"></td>
+            <td id="day19" class="fri"></td>
+            <td id="day20" class="sat"></td>
+        </tr>
+        <tr>
+            <td id="day21" class="sun"></td>
+            <td id="day22" class="mon"></td>
+            <td id="day23" class="tue"></td>
+            <td id="day24" class="wed"></td>
+            <td id="day25" class="thu"></td>
+            <td id="day26" class="fri"></td>
+            <td id="day27" class="sat"></td>
+        </tr>
+        <tr>
+            <td id="day28" class="sun"></td>
+            <td id="day29" class="mon"></td>
+            <td id="day30" class="tue"></td>
+            <td id="day31" class="wed"></td>
+            <td id="day32" class="thu"></td>
+            <td id="day33" class="fri"></td>
+            <td id="day34" class="sat"></td>
+        </tr>
+        <tr>
+            <td id="day35" class="sun"></td>
+            <td id="day36" class="mon"></td>
+            <td id="day37" class="tue"></td>
+            <td id="day38" class="wed"></td>
+            <td id="day39" class="thu"></td>
+            <td id="day40" class="fri"></td>
+            <td id="day41" class="sat"></td>
+        </tr>
+
+    </table>
+    <p id="time"></p>
+</body>
+<script>
+    displayMonth(0, 0)
+</script>
+</html>
