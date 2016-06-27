@@ -1,0 +1,16 @@
+﻿/*Calendar CSS*/
+table {
+	border: 1px solid #000;
+}
+th, td {
+	border: 1px dotted #123456;
+	height: 20px;
+	width: 60px;
+	text-align: center;
+}
+table .sun {
+	color: red;
+}
+table .sat {
+	color: blue;
+}
