@@ -7,14 +7,28 @@
 </head>
 <body>
     <form>
-        <input type="text"/>
+        <input id="date" type="text" value=""/>
     </form><br/>
     <table>
         <tr>
             <th><button id="prevYearButton" onClick="displayMonthCustoms(-1, 0)"> << </button></th>
             <th><button id="prevMonthButton" onClick="displayMonthCustoms(0, -1)"> < </button></th>
-            <th colspan="2"><select ></select></th>
-            <th><select ></select></th>
+            <th colspan="2">
+                <select id="month" onchange="displayByMonth(value)">
+                    <option value="0">January</option>
+                    <option value="1">Febuary</option>
+                    <option value="2">March</option>
+                    <option value="3">April</option>
+                    <option value="4">May</option>
+                    <option value="5">June</option>
+                    <option value="6">July</option>
+                    <option value="7">August</option>
+                    <option value="8">September</option>
+                    <option value="9">October</option>
+                    <option value="10">November</option>
+                    <option value="11">December</option>
+                </select></th>
+            <th><form><input id="year" onblur="displayByYear(value)" type="text" value=""/></form></th>
             <th><button id="nextMonthButton" onClick="displayMonthCustoms(0, 1)"> > </button></th>
             <th><button id="nextYearButton" onClick="displayMonthCustoms(1, 0)"> >> </button></th>
         </tr>
@@ -28,64 +42,64 @@
             <th>Sat</th>
         </tr>
         <tr>
-            <td id="day0" class="sun"></td>
-            <td id="day1" class="mon"></td>
-            <td id="day2" class="tue"></td>
-            <td id="day3" class="wed"></td>
-            <td id="day4" class="thu"></td>
-            <td id="day5" class="fri"></td>
-            <td id="day6" class="sat"></td>
+            <td id="day0" class="sun" onmouseover="changeTitleColor(0, 1)" onmouseout="changeTitleColor(0, 2)" onClick="setDate(0)"></td>
+            <td id="day1" class="mon" onmouseover="changeTitleColor(1, 1)" onmouseout="changeTitleColor(1, 2)" onClick="setDate(1)"></td>
+            <td id="day2" class="tue" onmouseover="changeTitleColor(2, 1)" onmouseout="changeTitleColor(2, 2)" onClick="setDate(2)"></td>
+            <td id="day3" class="wed" onmouseover="changeTitleColor(3, 1)" onmouseout="changeTitleColor(3, 2)" onClick="setDate(3)"></td>
+            <td id="day4" class="thu" onmouseover="changeTitleColor(4, 1)" onmouseout="changeTitleColor(4, 2)" onClick="setDate(4)"></td>
+            <td id="day5" class="fri" onmouseover="changeTitleColor(5, 1)" onmouseout="changeTitleColor(5, 2)" onClick="setDate(5)"></td>
+            <td id="day6" class="sat" onmouseover="changeTitleColor(6, 1)" onmouseout="changeTitleColor(6, 2)" onClick="setDate(6)"></td>
         </tr>
         <tr>
-            <td id="day7" class="sun"></td>
-            <td id="day8" class="mon"></td>
-            <td id="day9" class="tue"></td>
-            <td id="day10" class="wed"></td>
-            <td id="day11" class="thu"></td>
-            <td id="day12" class="fri"></td>
-            <td id="day13" class="sat"></td>
+            <td id="day7" class="sun" onmouseover="changeTitleColor(7, 1)" onmouseout="changeTitleColor(7, 2)" onClick="setDate(7)"></td>
+            <td id="day8" class="mon" onmouseover="changeTitleColor(8, 1)" onmouseout="changeTitleColor(8, 2)" onClick="setDate(8)"></td>
+            <td id="day9" class="tue" onmouseover="changeTitleColor(9, 1)" onmouseout="changeTitleColor(9, 2)" onClick="setDate(9)"></td>
+            <td id="day10" class="wed" onmouseover="changeTitleColor(10, 1)" onmouseout="changeTitleColor(10, 2)" onClick="setDate(10)"></td>
+            <td id="day11" class="thu" onmouseover="changeTitleColor(11, 1)" onmouseout="changeTitleColor(11, 2)" onClick="setDate(11)"></td>
+            <td id="day12" class="fri" onmouseover="changeTitleColor(12, 1)" onmouseout="changeTitleColor(12, 2)" onClick="setDate(12)"></td>
+            <td id="day13" class="sat" onmouseover="changeTitleColor(13, 1)" onmouseout="changeTitleColor(13, 2)" onClick="setDate(13)"></td>
         </tr>
         <tr>
-            <td id="day14" class="sun"></td>
-            <td id="day15" class="mon"></td>
-            <td id="day16" class="tue"></td>
-            <td id="day17" class="wed"></td>
-            <td id="day18" class="thu"></td>
-            <td id="day19" class="fri"></td>
-            <td id="day20" class="sat"></td>
+            <td id="day14" class="sun" onmouseover="changeTitleColor(14, 1)" onmouseout="changeTitleColor(14, 2)" onClick="setDate(14)"></td>
+            <td id="day15" class="mon" onmouseover="changeTitleColor(15, 1)" onmouseout="changeTitleColor(15, 2)" onClick="setDate(15)"></td>
+            <td id="day16" class="tue" onmouseover="changeTitleColor(16, 1)" onmouseout="changeTitleColor(16, 2)" onClick="setDate(16)"></td>
+            <td id="day17" class="wed" onmouseover="changeTitleColor(17, 1)" onmouseout="changeTitleColor(17, 2)" onClick="setDate(17)"></td>
+            <td id="day18" class="thu" onmouseover="changeTitleColor(18, 1)" onmouseout="changeTitleColor(18, 2)" onClick="setDate(18)"></td>
+            <td id="day19" class="fri" onmouseover="changeTitleColor(19, 1)" onmouseout="changeTitleColor(19, 2)" onClick="setDate(19)"></td>
+            <td id="day20" class="sat" onmouseover="changeTitleColor(20, 1)" onmouseout="changeTitleColor(20, 2)" onClick="setDate(20)"></td>
         </tr>
         <tr>
-            <td id="day21" class="sun"></td>
-            <td id="day22" class="mon"></td>
-            <td id="day23" class="tue"></td>
-            <td id="day24" class="wed"></td>
-            <td id="day25" class="thu"></td>
-            <td id="day26" class="fri"></td>
-            <td id="day27" class="sat"></td>
+            <td id="day21" class="sun" onmouseover="changeTitleColor(21, 1)" onmouseout="changeTitleColor(21, 2)" onClick="setDate(21)"></td>
+            <td id="day22" class="mon" onmouseover="changeTitleColor(22, 1)" onmouseout="changeTitleColor(22, 2)" onClick="setDate(22)"></td>
+            <td id="day23" class="tue" onmouseover="changeTitleColor(23, 1)" onmouseout="changeTitleColor(23, 2)" onClick="setDate(23)"></td>
+            <td id="day24" class="wed" onmouseover="changeTitleColor(24, 1)" onmouseout="changeTitleColor(24, 2)" onClick="setDate(24)"></td>
+            <td id="day25" class="thu" onmouseover="changeTitleColor(25, 1)" onmouseout="changeTitleColor(25, 2)" onClick="setDate(25)"></td>
+            <td id="day26" class="fri" onmouseover="changeTitleColor(26, 1)" onmouseout="changeTitleColor(26, 2)" onClick="setDate(26)"></td>
+            <td id="day27" class="sat" onmouseover="changeTitleColor(27, 1)" onmouseout="changeTitleColor(27, 2)" onClick="setDate(27)"></td>
         </tr>
         <tr>
-            <td id="day28" class="sun"></td>
-            <td id="day29" class="mon"></td>
-            <td id="day30" class="tue"></td>
-            <td id="day31" class="wed"></td>
-            <td id="day32" class="thu"></td>
-            <td id="day33" class="fri"></td>
-            <td id="day34" class="sat"></td>
+            <td id="day28" class="sun" onmouseover="changeTitleColor(28, 1)" onmouseout="changeTitleColor(28, 2)" onClick="setDate(28)"></td>
+            <td id="day29" class="mon" onmouseover="changeTitleColor(29, 1)" onmouseout="changeTitleColor(29, 2)" onClick="setDate(29)"></td>
+            <td id="day30" class="tue" onmouseover="changeTitleColor(30, 1)" onmouseout="changeTitleColor(30, 2)" onClick="setDate(30)"></td>
+            <td id="day31" class="wed" onmouseover="changeTitleColor(31, 1)" onmouseout="changeTitleColor(31, 2)" onClick="setDate(31)"></td>
+            <td id="day32" class="thu" onmouseover="changeTitleColor(32, 1)" onmouseout="changeTitleColor(32, 2)" onClick="setDate(32)"></td>
+            <td id="day33" class="fri" onmouseover="changeTitleColor(33, 1)" onmouseout="changeTitleColor(33, 2)" onClick="setDate(33)"></td>
+            <td id="day34" class="sat" onmouseover="changeTitleColor(34, 1)" onmouseout="changeTitleColor(34, 2)" onClick="setDate(34)"></td>
         </tr>
         <tr>
-            <td id="day35" class="sun"></td>
-            <td id="day36" class="mon"></td>
-            <td id="day37" class="tue"></td>
-            <td id="day38" class="wed"></td>
-            <td id="day39" class="thu"></td>
-            <td id="day40" class="fri"></td>
-            <td id="day41" class="sat"></td>
+            <td id="day35" class="sun" onmouseover="changeTitleColor(35, 1)" onmouseout="changeTitleColor(35, 2)" onClick="setDate(35)"></td>
+            <td id="day36" class="mon" onmouseover="changeTitleColor(36, 1)" onmouseout="changeTitleColor(36, 2)" onClick="setDate(36)"></td>
+            <td id="day37" class="tue" onmouseover="changeTitleColor(37, 1)" onmouseout="changeTitleColor(37, 2)" onClick="setDate(37)"></td>
+            <td id="day38" class="wed" onmouseover="changeTitleColor(38, 1)" onmouseout="changeTitleColor(38, 2)" onClick="setDate(38)"></td>
+            <td id="day39" class="thu" onmouseover="changeTitleColor(39, 1)" onmouseout="changeTitleColor(39, 2)" onClick="setDate(39)"></td>
+            <td id="day40" class="fri" onmouseover="changeTitleColor(40, 1)" onmouseout="changeTitleColor(40, 2)" onClick="setDate(40)"></td>
+            <td id="day41" class="sat" onmouseover="changeTitleColor(41, 1)" onmouseout="changeTitleColor(41, 2)" onClick="setDate(41)"></td>
         </tr>
 
     </table>
     <p id="time"></p>
 </body>
 <script>
-    displayMonth(0, 0)
+    displayMonth(0, 0);
 </script>
 </html>
