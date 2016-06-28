@@ -11,8 +11,8 @@
     </form><br/>
     <table>
         <tr>
-            <th><button id="prevYearButton" onClick="displayMonthCustoms(-1, 0)"> << </button></th>
-            <th><button id="prevMonthButton" onClick="displayMonthCustoms(0, -1)"> < </button></th>
+            <th><button id="prevYearButton" onClick="displayMonthCustoms(-1, 0)"> &lt;&lt; </button></th>
+            <th><button id="prevMonthButton" onClick="displayMonthCustoms(0, -1)"> &lt; </button></th>
             <th colspan="2">
                 <select id="month" onchange="displayByMonth(value)">
                     <option value="0">January</option>
@@ -29,8 +29,8 @@
                     <option value="11">December</option>
                 </select></th>
             <th><form><input id="year" onblur="displayByYear(value)" type="text" value=""/></form></th>
-            <th><button id="nextMonthButton" onClick="displayMonthCustoms(0, 1)"> > </button></th>
-            <th><button id="nextYearButton" onClick="displayMonthCustoms(1, 0)"> >> </button></th>
+            <th><button id="nextMonthButton" onClick="displayMonthCustoms(0, 1)"> &gt; </button></th>
+            <th><button id="nextYearButton" onClick="displayMonthCustoms(1, 0)"> &gt;&gt; </button></th>
         </tr>
         <tr>
             <th>Sun</th>
@@ -98,8 +98,8 @@
 
     </table>
     <p id="time"></p>
+    <script>
+        displayMonth(0, 0);
+    </script>
 </body>
-<script>
-    displayMonth(0, 0);
-</script>
 </html>
