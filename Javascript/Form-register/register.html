@@ -1,0 +1,18 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Register</title>
+    <link rel="stylesheet" type="text/css" href="register_css.css"/>
+    <script type="text/javascript" src="register_js.js"></script>
+</head>
+<body>
+    <form action="check.php" method="post"><br/>
+        Username: <input id="input-Username" onblur="checkValidInput('Username')" type="text" name="user"/> <a id="status-Username"></a><br/>
+        Password: <input id="input-Password" onblur="checkValidInput('Password')" type="password" name="pass"/> <a id="status-Password"></a><br/>
+        Retype: <input id="input-RePassword" onblur="checkSimilarPass()" type="password" name="repass"/> <a id="status-RePassword"></a><br/>
+        Email: <input id="input-Email" onblur="checkValidEmail('Email')" type="text" name="email"/> <a id="status-Email"></a><br/>        
+        
+        <input type="submit" name="submit" value="Dang Nhap"/><br/>
+    </form>
+</body>
+</html>
