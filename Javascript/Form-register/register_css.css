@@ -1,1 +1,82 @@
-﻿
+﻿/*Register Form CSS*/
+
+#input_area input, #input_area button{
+	border: 1px solid #97ec97;
+	border-radius: 5px;
+}
+#input_area input[type=submit]:hover, #input_area button:hover {
+	background-color: #45a049;
+}
+#input_area input[type=submit], #input_area button{
+	background-color: #3fdd3f;
+}
+#input_area button {
+	margin-left: 10px;
+}
+#input_area input[type=submit] {
+	margin: 5px 0px 5px 130px;
+}
+
+#calendar_table {
+	background-color: #fff;
+	box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.5);
+	position: absolute;
+	top: 135px;
+	left: 10px;
+	display: none;
+}
+#calendar_table, #calendar_table th {
+	border: 1px solid #000;
+}
+
+#calendar_table td {
+	border: 1px dotted #123456;
+	width: 40px;
+	height: 20px;
+	text-align: center;
+}
+
+#calendar_table .sun {
+	color: red;
+}
+
+#calendar_table .sat {
+	color: blue;
+}
+
+#calendar_table input[type=text], #calendar_table button {
+	width: 38px;
+	height: 18px;
+	text-align: center;
+}
+
+#container {
+
+	position: relative;
+	width: 500px;
+	border: 1px solid #007400;
+	box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.5);
+	margin: 0 auto;
+}
+
+#logo {
+	margin: 10px 0px 10px 150px;
+}
+.input {
+	width: 490px;
+	margin: 5px 0px 5px 0px;
+}
+.text {
+	width: 100px;
+	margin-right: 10px;
+	float: left;
+	text-align: right;
+}
+.input img {
+	height: 16px;
+	margin: 0 0 -3px -15px;
+}
+#info {
+	color: #007400;
+	margin: 15px 140px 0px 140px;
+}

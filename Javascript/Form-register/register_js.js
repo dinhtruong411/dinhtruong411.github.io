@@ -1,5 +1,8 @@
 ﻿/*Register JS*/
 
+/*--checkValidInput--
+Check Username and Password length
+*/
 function checkValidInput(name) {
     var Length = document.getElementById("input-" + name).value.length;
     if (Length < 8) {
@@ -11,6 +14,7 @@ function checkValidInput(name) {
     };
 }
 
+/*--checkSimilarPass--*/
 function checkSimilarPass() {
      var pass = document.getElementById("input-Password").value;
      var rePass = document.getElementById("input-RePassword").value;
