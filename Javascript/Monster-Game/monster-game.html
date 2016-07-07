@@ -1,1 +1,31 @@
-﻿
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>Monster Game</title>
+	<meta content="text/html; charset=UTF-8" http-equiv="content-type"/>
+	<link rel="stylesheet" type="text/css" href="monster-game_css.css" />
+	<script type="text/javascript" src="monster-game_js.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+</head>
+<body>
+	<div id="container">
+		<div id="game-area">
+		<img id="monster-1" onmousedown="destroyMonster(this)" src="images/yasuo.png" alt="monster1"/>
+		<img id="monster-2" onmousedown="destroyMonster(this)" src="images/teemo.png" alt="monster2"/>
+		<img id="monster-3" onmousedown="destroyMonster(this)" src="images/zed.png" alt="monster3"/>
+		<img id="monster-4" onmousedown="destroyMonster(this)" src="images/mazahar.png" alt="monster4"/>
+		<img id="blood" src="images/blood.png" alt="blood"/>
+		</div>
+		<div id="button-area">
+			<img onClick="play()" onmousedown="btmEffect(this, 'onpress')" onmouseup="btmEffect(this, 'unpress')" onmouseout="btmEffect(this, 'unpress')" id="play-btm" src="images/unpress-btm.png" alt="btm"/>
+			<img onClick="pause()"  onmousedown="btmEffect(this, 'onpress')" onmouseup="btmEffect(this, 'unpress')" onmouseout="btmEffect(this, 'unpress')" id="pause-btm" src="images/unpress-btm.png" alt="btm"/>
+			<img onmousedown="btmEffect(this, 'onpress')" onmouseup="btmEffect(this, 'unpress')" onmouseout="btmEffect(this, 'unpress')" id="boom-btm" src="images/unpress-btm.png" alt="btm"/>
+		</div>
+		<div id="life-area">
+		</div>
+		<div id="score-area">
+		0
+		</div>
+	</div>
+</body>
+</html>	
