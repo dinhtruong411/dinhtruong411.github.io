@@ -21,7 +21,7 @@
 	background-color: #fff;
 	box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.5);
 	position: absolute;
-	top: 135px;
+	top: 240px;
 	left: 10px;
 	display: none;
 }
@@ -51,19 +51,18 @@
 }
 
 #container {
-
 	position: relative;
-	width: 500px;
+	width: 590px;
 	border: 1px solid #007400;
 	box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.5);
 	margin: 0 auto;
 }
 
 #logo {
-	margin: 10px 0px 10px 150px;
+	margin: 10px 0px 10px 185px;
 }
 .input {
-	width: 490px;
+	width: 550px;
 	margin: 5px 0px 5px 0px;
 }
 .text {
@@ -76,7 +75,7 @@
 	height: 16px;
 	margin: 0 0 -3px -15px;
 }
-#info {
+#info, #status {
 	color: #007400;
-	margin: 15px 140px 0px 140px;
+	margin: 15px 100px 0px 100px;
 }
