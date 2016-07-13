@@ -9,6 +9,14 @@
 	box-shadow: 0 20px 30px 0 rgba(0, 0, 0, 0.6);
 }
 
+#images-area {
+	position: relative;	
+	top: 95px;
+	left: 330px;
+	height: 0px;
+	width: 0px;
+	overflow: hidden;
+}
 #game-area {
 	position: relative;	
 	top: 95px;
@@ -28,7 +36,7 @@
 
 #life-area {
 	background-image: url('images/life-bg.png');
-	background-position: 0px 47px;
+	background-position: 0px 40px;
 	position: absolute;
 	bottom: 12px;
 	left: 95px;
@@ -54,4 +62,3 @@
 #monster-1, #monster-2, #monster-3, #monster-4, #blood{
 	position: absolute;
 	left: 510px;
-}
