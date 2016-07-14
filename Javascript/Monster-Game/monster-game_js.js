@@ -1,6 +1,4 @@
 /*Monster game Javascript*/
-var spX = (Math.random() * 2) + 1;
-var spY = (Math.random() * 2) + 1;
 var	northWest 	= [-90, -75, 1.5, 1, 255, 175];
 var	north 		= [205, -75, 0, 1, 255, 175];
 var	northEast 	= [510, -75, -1.5, 1, 255, 175];
@@ -9,11 +7,13 @@ var	southEast 	= [510, 350, -1.5, -1, 255, 175];
 var	south 		= [205, 350, 0, -1, 255, 175];
 var	southWest 	= [-90, 350, 1.5, -1, 255, 175];
 var	west 		= [-90, 130, 1.5, 0, 255, 175];
-var center		= [200, 170, spX, spY, 0, 0];
+var center		= [200, 170, 0, 0, 0, 0];
 var direction	= [northWest, north, northEast, east, southEast, south, southWest, west, center];
 var score = 0;
 var life = 5;
 var monsters = [];
+var isPause = false;
+var isReStart = false;
 
 var myGameArea = {
 	start : function() {
@@ -25,23 +25,23 @@ var myGameArea = {
 		window.addEventListener('click', function(e) {
 			myGameArea.xClick = e.pageX - canvas.offsetLeft - container.offsetLeft;
 			myGameArea.yClick = e.pageY - canvas.offsetTop - container.offsetTop;
-		})
+		}, false)
 		window.addEventListener('mousedown', function(e) {
 			myGameArea.x = e.pageX - canvas.offsetLeft - container.offsetLeft;
 			myGameArea.y = e.pageY - canvas.offsetTop - container.offsetTop;
-		})
+		},false)
 		window.addEventListener('mouseup', function(e) {
 			myGameArea.x = false;
 			myGameArea.y = false;
-		})
+		},false)
 		window.addEventListener('touchstart', function(e) {
-			myGameArea.x = e.pageX - canvas.offsetLeft;
-			myGameArea.y = e.pageY - canvas.offsetTop;
-		})
+			myGameArea.x = e.pageX - canvas.offsetLeft - container.offsetLeft;
+			myGameArea.y = e.pageY - canvas.offsetTop - container.offsetTop;
+		},false)
 		window.addEventListener('touchend', function(e) {
 			myGameArea.x = false;
 			myGameArea.y = false;
-		})
+		},false)
 	},
 	clear : function() {
 		context.clearRect(0, 0, canvas.width, canvas.height);
@@ -63,7 +63,6 @@ function startScreen() {
 	else {
 		alert("Your browser doesn't support requestAnimationFrame.");
 	}
-	
 }
 
 
@@ -89,9 +88,27 @@ function startGame() {
 }
 
 
+function randomDirection(lowSpeed, highSpeed) {
+	var l = Math.floor(highSpeed - lowSpeed) + 1;
+	selectSign = Math.floor(Math.random() * 2);
+	switch (selectSign) {
+		case 0:
+			return (Math.random() * l) + lowSpeed;
+			break;
+		case 1:
+			return -(Math.random() * l) + lowSpeed;
+			break;
+	}
+}
+
+function increSpeed (originSpeed, increValue) {
+	return originSpeed +  Math.sign(originSpeed)*increValue;
+}
+
 function monster(){
 	var id = Math.floor((Math.random() * 4) + 1);
 	var directID = Math.floor(Math.random() * 10);
+	var increValue = score/10;
 	if (directID > 8) {
 		directID =8;
 	}
@@ -100,31 +117,37 @@ function monster(){
 	this.y = direction[directID][1];
 	this.width = 90;
 	this.height = 75;
-	this.speedX = direction[directID][2];
-	this.speedY = direction[directID][3];
-	this.limitX = direction[directID][4];
-	this.limitY = direction[directID][5];
+	if (directID == 8) {
+		this.speedX = increSpeed(randomDirection(1, 2), increValue);
+		this.speedY = increSpeed(randomDirection(1, 2), increValue);
+	}
+	else {
+		this.speedX = increSpeed(direction[directID][2], increValue);
+		this.speedY = increSpeed(direction[directID][3], increValue);
+		this.limitX = direction[directID][4];
+		this.limitY = direction[directID][5];
+	}
 	this.checkLimit = function() {
-			var myTop = this.y;
-			var myBottom = this.y + this.height;
-			var limitY = this.limitY;
-			var myLeft = this.x;
-			var myRight = this.x + this.width;
-			var limitX = this.limitX;
-			if (directID == 8) {
-				if (myLeft < 0 || myRight > canvas.width) {
-					this.speedX = -this.speedX;
-				}
-				if (myTop < 0 || myBottom > canvas.height) {
-					this.speedY = -this.speedY;
-				}
+		var myTop = this.y;
+		var myBottom = this.y + this.height;
+		var limitY = this.limitY;
+		var myLeft = this.x;
+		var myRight = this.x + this.width;
+		var limitX = this.limitX;
+		if (directID == 8) {
+			if (myLeft < 0 || myRight > canvas.width) {
+				this.speedX = -this.speedX;
 			}
-			else {
-				if (Math.abs(limitY - myBottom) < 10 || Math.abs(myTop - limitY) < 10 || Math.abs(myLeft - limitX) < 10 || Math.abs(limitX - myRight) < 10 ) {
-					this.speedX = -this.speedX;
-					this.speedY = -this.speedY;
-				}
+			if (myTop < 0 || myBottom > canvas.height) {
+				this.speedY = -this.speedY;
 			}
+		}
+		else {
+			if (Math.abs(limitY - myBottom) < 10 || Math.abs(myTop - limitY) < 10 || Math.abs(myLeft - limitX) < 10 || Math.abs(limitX - myRight) < 10 ) {
+				this.speedX = -this.speedX;
+				this.speedY = -this.speedY;
+			}
+		}
 	}
 	this.clickDown = function() {
 		var myTop = this.y;
@@ -134,6 +157,8 @@ function monster(){
 		var clickDown = true;
 		if (myTop > myGameArea.y || myBottom < myGameArea.y || myLeft > myGameArea.x || myRight < myGameArea.x) {
 			clickDown = false;
+								life--;
+					updateLife();
 		}
 		return clickDown;
 	}
@@ -142,11 +167,11 @@ function monster(){
 		var myBottom = this.y + this.height;
 		var myLeft = this.x;
 		var myRight = this.x + this.width;
-		var clicked = false;
-		if (myTop > myGameArea.yClick || myBottom < myGameArea.yClick || myLeft > myGameArea.xClick || myRight < myGameArea.xClick) {
-			clicked = true;
+		var clickedd = false;
+		if (myTop > myGameArea.y || myBottom < myGameArea.y || myLeft > myGameArea.x || myRight < myGameArea.x) {
+			clickedd = true;
 		}
-		return clicked;
+		return clickedd;
 	}
 	this.newPosition = function() {
 		this.x += this.speedX;
@@ -179,24 +204,62 @@ function blood(x, y, width, height) {
 	context.drawImage(bloodImg, this.x, this.y, this.width, this.height);
 }
 
+
+function pause() {
+	isPause = true;
+}
+
+function start() {
+	isPause  = false;
+}
+function reStart() {
+	isReStart = true;
+}
+
 function updateGame() {
-	myGameArea.clear();
-	for (i = 0; i < 2; i++) {
-		monsters[i].checkLimit();
-		monsters[i].newPosition();
-		monsters[i].update();
+	if (isPause) {
+		context.drawImage(document.getElementById("play-screen"), 0, 0, canvas.width, canvas.height);
 		if (myGameArea.x && myGameArea.y) {
-			if (monsters[i].clickDown()) {
-				score += 1;
-				document.getElementById("score-area").innerHTML = score;
-				Bloob = new blood(monsters[i].x, monsters[i].y, monsters[i].width, monsters[i].height);
-				monsters[i] = new monster();
+			if (!(myGameArea.x < 0 || myGameArea.x > canvas.width || myGameArea.y < 0 || myGameArea.y > canvas.height)) {
+				isPause = false;
 			}
 		}
-		if (monsters[i].outOfAreaEvent()) {
-			score -= 1;
-			document.getElementById("score-area").innerHTML = score;
-			monsters[i] = new monster();
+	}
+	else if(isReStart) {
+		myGameArea.clear();
+		score = 0;
+		life = 5;
+		document.getElementById("score-area").innerHTML = score;
+		updateLife();
+		monsters = new Array();
+		monsters[1] = new monster();
+		monsters[2] = new monster();
+		isReStart = false;
+	}
+	else {
+		myGameArea.clear();
+		for (i = 0; i < 2; i++) {
+			monsters[i].checkLimit();
+			monsters[i].newPosition();
+			monsters[i].update();
+			if (myGameArea.x && myGameArea.y) {
+				if (monsters[i].clickDown()) {
+					score += 1;
+					document.getElementById("score-area").innerHTML = score;
+					Bloob = new blood(monsters[i].x, monsters[i].y, monsters[i].width, monsters[i].height);
+					monsters[i] = new monster();
+				}
+			}
+			if (monsters[i].outOfAreaEvent()) {
+				score -= 1;
+				document.getElementById("score-area").innerHTML = score;
+				monsters[i] = new monster();
+				life -= 1;
+				updateLife();
+				if (life == 0) {
+					document.getElementById("score-area").innerHTML = 'thua';;
+				}
+			}
 		}
 	}
 	reqAnimation(updateGame);
