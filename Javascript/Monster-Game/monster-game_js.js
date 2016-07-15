@@ -30,7 +30,7 @@ var myGameArea = {
 			window.oRequestAnimationFrame;
 		if (typeof(Storage) !== "undefined") {
 			if (!localStorage.highScore){
-				localStorage.highScore = -10;
+				localStorage.highScore = 0;
 			}
 		} else {
 			alert("Sorry! No Web Storage support..")
