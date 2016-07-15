@@ -45,15 +45,15 @@
 }
 
 #score-area {
-	position: absolute;
-	top: 220px;
-	left: 15px;
-	width: 170px;
-	height: 100px;
-	color: #e8ae00;
-	font-size: 60px;
-	text-align: center;
-	padding: 10px;
+    position: absolute;
+    top: 240px;
+    left: 5px;
+    width: 220px;
+    height: 160px;
+    color: #e8ae00;
+    font-size: 29px;
+    text-align: left;
+    padding: 10px;
 }
 
 #play-btm, #pause-btm, #boom-btm {
