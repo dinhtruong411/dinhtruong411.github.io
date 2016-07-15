@@ -14,18 +14,30 @@ var life = 5;
 var monsters = [];
 var isPause = false;
 var isReStart = false;
+var isEnd = false;
+var isBoom = false;
+var validBoom = true;
 
 var myGameArea = {
 	start : function() {
 		container = document.getElementById("container");
 		canvas = document.getElementById("game-area");
 		context = canvas.getContext("2d");
+		reqAnimation = window.requestAnimationFrame || 
+			window.mozRequestAnomationFrame || 
+			window.webkitRequestAnimationFrame || 
+			window.msRequestAnimationFrame || 
+			window.oRequestAnimationFrame;
+		if (typeof(Storage) !== "undefined") {
+			if (!localStorage.highScore){
+				localStorage.highScore = -10;
+			}
+		} else {
+			alert("Sorry! No Web Storage support..")
+		}
+		document.getElementById("highScore").innerHTML = localStorage.highScore;
 		canvas.height = 350;
 		canvas.width = 510;
-		window.addEventListener('click', function(e) {
-			myGameArea.xClick = e.pageX - canvas.offsetLeft - container.offsetLeft;
-			myGameArea.yClick = e.pageY - canvas.offsetTop - container.offsetTop;
-		}, false)
 		window.addEventListener('mousedown', function(e) {
 			myGameArea.x = e.pageX - canvas.offsetLeft - container.offsetLeft;
 			myGameArea.y = e.pageY - canvas.offsetTop - container.offsetTop;
@@ -51,22 +63,12 @@ var myGameArea = {
 
 function startScreen() {
 	myGameArea.start();
-	context.drawImage(document.getElementById("play-screen"), 0, 0, canvas.width, canvas.height);
-	reqAnimation = window.requestAnimationFrame || 
-	window.mozRequestAnomationFrame || 
-	window.webkitRequestAnimationFrame || 
-	window.msRequestAnimationFrame || 
-	window.oRequestAnimationFrame;
-	if (reqAnimation) {
-		checkStartButton();
-	}
-	else {
-		alert("Your browser doesn't support requestAnimationFrame.");
-	}
+	checkStartButton();
 }
 
 
 function checkStartButton() {
+	context.drawImage(document.getElementById("play-screen"), 0, 0, canvas.width, canvas.height);
 	if (myGameArea.x && myGameArea.y) {
 		if (myGameArea.x < 0 || myGameArea.x > canvas.width || myGameArea.y < 0 || myGameArea.y > canvas.height) {
 			reqAnimation(checkStartButton);
@@ -80,11 +82,49 @@ function checkStartButton() {
 	}
 }
 
+
 function startGame() {
+	score = 0;
+	life = 5;
+	monsters = [];
+	isPause = false;
+	isReStart = false;
+	isEnd = false;
+	isBoom = false;
+	validBoom = true;
+	document.getElementById("score").innerHTML = score;
+	updateLife();
 	myGameArea.clear();
 	monsters[0] = new monster();
 	monsters[1] = new monster();
 	reqAnimation(updateGame);
+}
+
+function gameEnd() {
+	context.drawImage(document.getElementById("play-screen"), 0, 0, canvas.width, canvas.height);
+	if (myGameArea.x && myGameArea.y) {
+		if (!(myGameArea.x < 0 || myGameArea.x > canvas.width || myGameArea.y < 0 || myGameArea.y > canvas.height)) {
+			startGame();
+		}
+	}
+	else {
+		if (score >= localStorage.highScore) {
+			localStorage.highScore = score;
+			document.getElementById("highScore").innerHTML = localStorage.highScore;
+			context.fillStyle = 'RED';
+			context.font = "bold 40px Arial";
+			context.fillText('CONGRATULATION !!', 60, 120);
+			context.font = "bold 30px Arial";
+			context.fillText('High Score: ' + score, 155, 300);
+			reqAnimation(gameEnd);
+		}
+		else {
+			context.fillStyle = 'RED';
+			context.font = "bold 30px Arial";
+			context.fillText('Your Score: ' + score, 155, 300);
+			reqAnimation(gameEnd);
+		}
+	}
 }
 
 
@@ -102,30 +142,33 @@ function randomDirection(lowSpeed, highSpeed) {
 }
 
 function increSpeed (originSpeed, increValue) {
+	if (increValue < 0){
+		increValue = 0;
+	}
 	return originSpeed +  Math.sign(originSpeed)*increValue;
 }
 
 function monster(){
-	var id = Math.floor((Math.random() * 4) + 1);
-	var directID = Math.floor(Math.random() * 10);
 	var increValue = score/10;
-	if (directID > 8) {
-		directID =8;
+	this.id = Math.floor((Math.random() * 4) + 1);
+	this.directID = Math.floor(Math.random() * 10);
+	if (this.directID > 8) {
+		this.directID = 8;
 	}
-	var mon = document.getElementById("monster-" + id);
-	this.x = direction[directID][0];
-	this.y = direction[directID][1];
+	var mon = document.getElementById("monster-" + this.id);
+	this.x = direction[this.directID][0];
+	this.y = direction[this.directID][1];
 	this.width = 90;
 	this.height = 75;
-	if (directID == 8) {
+	if (this.directID == 8) {
 		this.speedX = increSpeed(randomDirection(1, 2), increValue);
 		this.speedY = increSpeed(randomDirection(1, 2), increValue);
 	}
 	else {
-		this.speedX = increSpeed(direction[directID][2], increValue);
-		this.speedY = increSpeed(direction[directID][3], increValue);
-		this.limitX = direction[directID][4];
-		this.limitY = direction[directID][5];
+		this.speedX = increSpeed(direction[this.directID][2], increValue);
+		this.speedY = increSpeed(direction[this.directID][3], increValue);
+		this.limitX = direction[this.directID][4];
+		this.limitY = direction[this.directID][5];
 	}
 	this.checkLimit = function() {
 		var myTop = this.y;
@@ -134,11 +177,11 @@ function monster(){
 		var myLeft = this.x;
 		var myRight = this.x + this.width;
 		var limitX = this.limitX;
-		if (directID == 8) {
-			if (myLeft < 0 || myRight > canvas.width) {
+		if (this.directID == 8) {
+			if (myLeft < -96 || myRight > canvas.width + 96) {
 				this.speedX = -this.speedX;
 			}
-			if (myTop < 0 || myBottom > canvas.height) {
+			if (myTop < -81 || myBottom > canvas.height + 81) {
 				this.speedY = -this.speedY;
 			}
 		}
@@ -149,6 +192,18 @@ function monster(){
 			}
 		}
 	}
+	this.outOfAreaEvent = function() {
+		var myTop = this.y;
+		var myBottom = this.y + this.height;
+		var myLeft = this.x;
+		var myRight = this.x + this.width;
+		if (myTop > (canvas.height + 5) || myBottom < -5 || myLeft > (canvas.width + 5) || myRight < -5) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
 	this.clickDown = function() {
 		var myTop = this.y;
 		var myBottom = this.y + this.height;
@@ -157,8 +212,6 @@ function monster(){
 		var clickDown = true;
 		if (myTop > myGameArea.y || myBottom < myGameArea.y || myLeft > myGameArea.x || myRight < myGameArea.x) {
 			clickDown = false;
-								life--;
-					updateLife();
 		}
 		return clickDown;
 	}
@@ -180,20 +233,7 @@ function monster(){
 	this.update = function() {
 		context.drawImage(mon, this.x, this.y, this.width, this.height);
 	}
-	this.outOfAreaEvent = function() {
-		var myTop = this.y;
-		var myBottom = this.y + this.height;
-		var myLeft = this.x;
-		var myRight = this.x + this.width;
-		if (myTop > (canvas.height + 5) || myBottom < -5 || myLeft > (canvas.width + 5) || myRight < -5) {
-			return true;
-		}
-		else {
-			return false;
-		}
-	}
 }
-
 
 function blood(x, y, width, height) {
 	this.x = x;
@@ -216,6 +256,10 @@ function reStart() {
 	isReStart = true;
 }
 
+function boom() {
+	isBoom = true;
+}
+
 function updateGame() {
 	if (isPause) {
 		context.drawImage(document.getElementById("play-screen"), 0, 0, canvas.width, canvas.height);
@@ -224,17 +268,24 @@ function updateGame() {
 				isPause = false;
 			}
 		}
+		reqAnimation(updateGame);
 	}
 	else if(isReStart) {
-		myGameArea.clear();
-		score = 0;
-		life = 5;
-		document.getElementById("score-area").innerHTML = score;
-		updateLife();
-		monsters = new Array();
-		monsters[1] = new monster();
-		monsters[2] = new monster();
-		isReStart = false;
+		startGame();
+	}
+	else if (isEnd){
+		gameEnd();
+	}
+	else if (isBoom && validBoom){
+		for (i = 0; i < 2; i++) {
+			validBoom = false;
+			score++;
+			document.getElementById("score").innerHTML = score;
+			Bloob = new blood(monsters[i].x, monsters[i].y, monsters[i].width, monsters[i].height);
+			monsters[i] = new monster();
+		}
+		isBoom = false;
+		reqAnimation(updateGame);
 	}
 	else {
 		myGameArea.clear();
@@ -244,26 +295,29 @@ function updateGame() {
 			monsters[i].update();
 			if (myGameArea.x && myGameArea.y) {
 				if (monsters[i].clickDown()) {
-					score += 1;
-					document.getElementById("score-area").innerHTML = score;
+					score++;
+					document.getElementById("score").innerHTML = score;
 					Bloob = new blood(monsters[i].x, monsters[i].y, monsters[i].width, monsters[i].height);
 					monsters[i] = new monster();
 				}
 			}
 			if (monsters[i].outOfAreaEvent()) {
-				score -= 1;
-				document.getElementById("score-area").innerHTML = score;
-				monsters[i] = new monster();
-				life -= 1;
+				score--;
+				document.getElementById("score").innerHTML = score;
+				life--;
 				updateLife();
+				if (monsters[i].directID != 8){
+					monsters[i] = new monster();
+				}
 				if (life == 0) {
-					document.getElementById("score-area").innerHTML = 'thua';;
+					isEnd = true;
 				}
 			}
 		}
+		reqAnimation(updateGame);
 	}
-	reqAnimation(updateGame);
 }
+
 
 function btmEffect(x, status) {
 	if (status == "onpress") {

@@ -19,14 +19,15 @@
 		</div>
 		<canvas id="game-area"></canvas>
 		<div id="button-area">
-			<img onClick="reStart()" onmousedown="btmEffect(this, 'onpress')" onmouseup="btmEffect(this, 'unpress')" onmouseout="btmEffect(this, 'unpress')" id="play-btm" src="images/unpress-btm.png" alt="btm"/>
-			<img onClick="pause()" onmousedown="btmEffect(this, 'onpress')" onmouseup="btmEffect(this, 'unpress')" onmouseout="btmEffect(this, 'unpress')" id="pause-btm" src="images/unpress-btm.png" alt="btm"/>
-			<img onmousedown="btmEffect(this, 'onpress')" onmouseup="btmEffect(this, 'unpress')" onmouseout="btmEffect(this, 'unpress')" id="boom-btm" src="images/unpress-btm.png" alt="btm"/>
+			<img onClick="reStart()" onmousedown="btmEffect(this, 'onpress')" onmouseup="btmEffect(this, 'unpress')" onmouseout="btmEffect(this, 'unpress')" id="play-btm" src="images/unpress-btm.png" alt=""/>
+			<img onClick="pause()" onmousedown="btmEffect(this, 'onpress')" onmouseup="btmEffect(this, 'unpress')" onmouseout="btmEffect(this, 'unpress')" id="pause-btm" src="images/unpress-btm.png" alt=""/>
+			<img onClick="boom()" onmousedown="btmEffect(this, 'onpress')" onmouseup="btmEffect(this, 'unpress')" onmouseout="btmEffect(this, 'unpress')" id="boom-btm" src="images/unpress-btm.png" alt=""/>
 		</div>
 		<div id="life-area">
 		</div>
 		<div id="score-area">
-		0
+		<span>Score: <span id="score"></span></span><br/>
+		<span>High Score: <span id="highScore"></span></span>
 		</div>
 	</div>
 <script>
