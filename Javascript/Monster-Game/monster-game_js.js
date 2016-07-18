@@ -60,13 +60,14 @@ var myGameArea = {
 	}
 }
 
-
 function startScreen() {
 	myGameArea.start();
 	checkStartButton();
 }
 
-
+/*
+function check event when we click start screen
+*/
 function checkStartButton() {
 	context.drawImage(document.getElementById("play-screen"), 0, 0, canvas.width, canvas.height);
 	if (myGameArea.x && myGameArea.y) {
@@ -81,7 +82,6 @@ function checkStartButton() {
 		reqAnimation(checkStartButton);
 	}
 }
-
 
 function startGame() {
 	score = 0;
@@ -127,7 +127,9 @@ function gameEnd() {
 	}
 }
 
-
+/*
+Function choice random direction and random speed from lowSpeed to highSpeed for center monster
+*/
 function randomDirection(lowSpeed, highSpeed) {
 	var l = Math.floor(highSpeed - lowSpeed) + 1;
 	selectSign = Math.floor(Math.random() * 2);
@@ -136,10 +138,14 @@ function randomDirection(lowSpeed, highSpeed) {
 			return (Math.random() * l) + lowSpeed;
 			break;
 		case 1:
-			return -(Math.random() * l) + lowSpeed;
+			return -((Math.random() * l) + lowSpeed);
 			break;
 	}
 }
+
+/*
+Function inrease monster speed with increValue
+*/
 
 function increSpeed (originSpeed, increValue) {
 	if (increValue < 0){
@@ -148,6 +154,10 @@ function increSpeed (originSpeed, increValue) {
 	return originSpeed +  Math.sign(originSpeed)*increValue;
 }
 
+/*
+function create monster object
+include some property
+*/
 function monster(){
 	var increValue = score/10;
 	this.id = Math.floor((Math.random() * 4) + 1);
@@ -235,6 +245,9 @@ function monster(){
 	}
 }
 
+/*
+Function draw Blood
+*/
 function blood(x, y, width, height) {
 	this.x = x;
 	this.y = y;
@@ -260,6 +273,9 @@ function boom() {
 	isBoom = true;
 }
 
+/*
+Game loop
+*/
 function updateGame() {
 	if (isPause) {
 		context.drawImage(document.getElementById("play-screen"), 0, 0, canvas.width, canvas.height);
@@ -318,7 +334,9 @@ function updateGame() {
 	}
 }
 
-
+/*
+function describe button effect
+*/
 function btmEffect(x, status) {
 	if (status == "onpress") {
 		x.src = "images/press-btm.png";
@@ -328,6 +346,10 @@ function btmEffect(x, status) {
 	}
 }
 
+
+/*
+Function control life icon appear by life variable
+*/
 function updateLife() {
 	lifePos = 240 - life*40;
 	document.getElementById("life-area").style.backgroundPosition = "0px " + lifePos + "px";
