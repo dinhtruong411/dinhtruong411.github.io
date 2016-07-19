@@ -1,0 +1,45 @@
+/*Photo Slider CSS*/
+#container {
+	position: relative;
+	border: 1px solid #007400;
+	box-shadow: 0 20px 30px 0 rgba(0, 0, 0, 0.6);
+	width: 1000px;
+	height: 552px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+#right-icon {
+	position: absolute;
+	top: 250px;
+	right: 0px;
+	opacity: 0.3;
+}
+
+#left-icon {
+	position: absolute;
+	top: 250px;
+	left: 0px;
+	opacity: 0.3;
+}
+#index-bar {
+	position: absolute;
+	top: 520px;
+	left: 390px;
+	width: 220px;
+	height: 28px;
+}
+#image-1 {
+	left: 0px;
+}
+.index-icon {
+	position: absolute;
+	top: 4px;
+	left: 4px;	
+}
+.slide-img {
+	position: absolute;
+	left: 1000px;
+	width: 1000px;
+	height: 552px;
+}

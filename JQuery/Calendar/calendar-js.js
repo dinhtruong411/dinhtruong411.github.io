@@ -25,7 +25,9 @@ function drawCalendarTable() {
 		dateResult	= $("<input></input>");
 	
 	$("body").append(dateResult);
+	Table.attr("id", "calendar_table");
 	dateResult.attr("id", "date");
+	dateResult.attr("onfocus", "showCalendar()");
 	prevMonthBtn.attr("onClick", "displayMonthCustoms(0, -1)");
 	prevYearBtn.attr("onClick","displayMonthCustoms(-1, 0)");
 	nextMonthBtn.attr("onClick", "displayMonthCustoms(0, 1)");
@@ -54,20 +56,22 @@ function drawCalendarTable() {
 	}
 	Table.append(dayBar);
 	for (i = 0; i < 42; i++) {
-		if (!(i % 7)) {
-			weeki = $("<tr></tr>");
-		}
 		dayi = $("<td></td>");
 		dayi.attr("id", i);
 		dayi.attr("onmouseover", "changeTitleColor(id, 1)");
 		dayi.attr("onmouseout", "changeTitleColor(id, 2)");
 		dayi.attr("onClick", "setDate(id)");
+		if (!(i % 7)) {
+			weeki = $("<tr></tr>");
+			dayi.addClass("sun");
+		}
 		weeki.append(dayi);
 		if (!((i + 8) % 7)) {
+			dayi.addClass("sat");
 			Table.append(weeki);
 		}
 	}
-	$("body").append(Table);
+	$("#date").after(Table);
 	displayMonth();
 }
 
