@@ -1,6 +1,13 @@
 /*Photo Slider Js*/
 var index = 1;
 var rightIndex, leftIndex;
+var interv = [];
+var intervId = 0;
+reqAnimation = window.requestAnimationFrame || 
+   window.mozRequestAnomationFrame || 
+   window.webkitRequestAnimationFrame || 
+   window.msRequestAnimationFrame || 
+   window.oRequestAnimationFrame;
 
 /*--Image slide to right--*/
 function slideRightToward() {
@@ -22,42 +29,39 @@ function slideLeftToward() {
 // if Control value is 1: slide to left
 // if Control value is 0: slide to rigth
 function imgSlide(id, Control) {
-	var imgId = document.getElementById("image-" + id);
-	var imgIndex = document.getElementById("image-" + index);
 	if (Control) {
-		imgId.style.left = "1000px";
-		Slider(imgIndex, -1000);
-		Slider(imgId, -1000);
+		Slider(id, 1000, 0);
+		Slider(index, 0, -1000);
 	}
 	else {
-		imgId.style.left = "-1000px";
-		Slider(imgIndex, 1000);
-		Slider(imgId, 1000);
+		Slider(id, -1000, 0);
+		Slider(index, 0, 1000);
 	}
 }
 
 
-function Slider(Object, slideValue) {
-	var curImgPos = Object.style.left;
-	var len = Object.style.left.length;
-	var currentImagePosition = Number(curImgPos.slice(0, len - 2));
-	var w;
-    if(typeof(Worker) !== "undefined") {
-        if(typeof(w) == "undefined") {
-            w = new Worker("count_worker.js");
-        }
-        w.onmessage = function(event) {
-            var Data = event.data;
-			var curPos = currentImagePosition + Math.sign(slideValue)*Data;
-			Object.style.left = curPos + "px";
-			if (Data == Math.abs(slideValue)) {
-				w.terminate();
-				w = undefined;
-			}
-        };
-    } else {
-        alert("Sorry, your browser does not support Web Workers...");
-    }
+/*Function slide photo has ObjId id 
+from startPos position to stopPos position*/
+function Slider(ObjId, startPos, stopPos) {
+	var Obj = document.getElementById("image-" + ObjId);
+	Obj.style.left = startPos + "px";
+	var val = stopPos - startPos;
+	intervId++;
+	
+	//Limit 20 setInterval
+	if (intervId == 20) {
+		intervId = 0;
+	}
+	var itvId = intervId;
+	var i = 0;
+	interv[itvId] = setInterval(function(){ 
+		i+=40;
+		realPos = startPos + Math.sign(val)*i;
+		Obj.style.left = realPos + "px";
+		if (i >= Math.abs(val)) {
+			clearInterval(interv[itvId]);
+		}
+    },1000/80);
 }
 
 
