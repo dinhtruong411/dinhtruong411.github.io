@@ -22,18 +22,47 @@ function slideLeftToward() {
 // if Control value is 1: slide to left
 // if Control value is 0: slide to rigth
 function imgSlide(id, Control) {
-	var currentImagePosition = document.getElementById("image-" + index).style.left;
+	var imgId = document.getElementById("image-" + id);
+	var imgIndex = document.getElementById("image-" + index);
 	if (Control) {
-		nextImagePosition = document.getElementById("image-" + id).style.left = "1000px";
-		$("#image-" + index).animate({left: '-=1000'},"slow");
-		$("#image-" + id).animate({left: '-=1000'},"slow");
+		imgId.style.left = "1000px";
+		Slider(imgIndex, -1000);
+		Slider(imgId, -1000);
 	}
 	else {
-		nextImagePosition = document.getElementById("image-" + id).style.left = "-1000px";
-		$("#image-" + index).animate({left: '+=1000'},"slow");
-		$("#image-" + id).animate({left: '+=1000'},"slow");
+		imgId.style.left = "-1000px";
+		Slider(imgIndex, 1000);
+		Slider(imgId, 1000);
 	}
 }
+
+
+function Slider(Object, slideValue) {
+	var curImgPos = Object.style.left;
+	var len = Object.style.left.length;
+	var currentImagePosition = Number(curImgPos.slice(0, len - 2));
+	var w;
+    if(typeof(Worker) !== "undefined") {
+        if(typeof(w) == "undefined") {
+            w = new Worker("http://gmo-truongpd.freevnn.com/workers/count_worker.js");
+        }
+        w.onmessage = function(event) {
+            var Data = event.data;
+			var curPos = currentImagePosition + Math.sign(slideValue)*Data;
+			Object.style.left = curPos + "px";
+			if (Data == Math.abs(slideValue)) {
+				w.terminate();
+				w = undefined;
+			}
+        };
+    } else {
+        alert("Sorry, your browser does not support Web Workers...");
+    }
+}
+
+
+
+
 
 /*--Function set index-icon position--*/
 function indexEffect(id) {
