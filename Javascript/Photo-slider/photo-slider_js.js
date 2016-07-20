@@ -44,7 +44,7 @@ function Slider(Object, slideValue) {
 	var w;
     if(typeof(Worker) !== "undefined") {
         if(typeof(w) == "undefined") {
-            w = new Worker("http://gmo-truongpd.freevnn.com/workers/count_worker.js");
+            w = new Worker("count_worker.js");
         }
         w.onmessage = function(event) {
             var Data = event.data;
