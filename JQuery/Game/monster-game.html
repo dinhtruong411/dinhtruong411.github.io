@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>Monster Game</title>
+	<meta content="text/html; charset=UTF-8" http-equiv="content-type"/>
+	<link rel="stylesheet" type="text/css" href="monster-game_css.css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script type="text/javascript" src="monster-game_js.js"></script>
+</head>
+<body onload="startGame()">
+	<div id="container">
+		<div id="game-area" >		
+		</div>
+		<div id="button-area">
+			<img onClick="play()" onmousedown="btmEffect(this, 'onpress')" onmouseup="btmEffect(this, 'unpress')" onmouseout="btmEffect(this, 'unpress')" id="play-btm" src="images/unpress-btm.png" alt="btm"/>
+			<img onClick="pause()"  onmousedown="btmEffect(this, 'onpress')" onmouseup="btmEffect(this, 'unpress')" onmouseout="btmEffect(this, 'unpress')" id="pause-btm" src="images/unpress-btm.png" alt="btm"/>
+			<img onmousedown="btmEffect(this, 'onpress')" onmouseup="btmEffect(this, 'unpress')" onmouseout="btmEffect(this, 'unpress')" id="boom-btm" src="images/unpress-btm.png" alt="btm"/>
+		</div>
+		<div id="life-area">
+		</div>
+		<div id="score-area">
+		0
+		</div>
+		
+
+	</div>
+</body>
+</html>	
