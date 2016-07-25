@@ -38,6 +38,41 @@ function startGame() {
 		alert("Sorry! No Web Storage support..")
 	}
 	$("#highScore").html(localStorage.highScoreJQ);
+	
+	$("#game-area").mousedown(function() {
+		if (!isPause && !isStop) {
+			var numberOfChild = $("#game-area").children(".blood").length;
+			if (numberOfChild < 1) {
+				life--;
+				updateLife();
+				score--;
+				$("#score").html(score);
+				if (life <= 0) {
+					isStop = true;
+					$("#0").stop(true, false);
+					$("#1").stop(true, false);
+					gameEnd();
+				}
+			}
+		}
+	});
+	$("#game-area").on("tap", function(){
+		if (!isPause && !isStop) {
+			var numberOfChild = $("#game-area").children(".blood").length;
+			if (numberOfChild < 1) {
+				life--;
+				updateLife();
+				score--;
+				$("#score").html(score);
+				if (life <= 0) {
+					isStop = true;
+					$("#0").stop(true, false);
+					$("#1").stop(true, false);
+					gameEnd();
+				}
+			}
+		}
+	});
 	play();
 }
 
@@ -75,7 +110,7 @@ function pause() {
 }
 
 function boom() {
-	if (isBoom) {
+	if (isBoom && !isPause && !isStop) {
 		$("#game-area").empty();
 		score += 2;
 		$("#score").html(score);
@@ -136,6 +171,7 @@ function monster(i) {
 	this.speed = speedValue;
 	this.element = $("<div></div>");
 	this.element.attr("id", i);
+	this.element.addClass("monster");
 	this.element.css({"background-image" : "url(images/" + this.id + ".png)", "width": '100px', "height": '94px'});
 	var monsterElement = this.element;
 	var state = true;
@@ -177,11 +213,20 @@ function monster(i) {
 			$("#score").html(score);
 			$("#score").html(score);
 			checkLevel();
-			if (life <= 0) {
-				isStop = true;
-				$("#" + tt).stop(false, false);
-				$("#" + i).clearQueue().finish(false, false);
-			}
+		}
+	});
+	this.element.on("tap", function(){
+		if (!isStop && !isPause) {
+			new blood(monsterElement.css("left"), monsterElement.css("top"));
+			monsterElement.stop();
+			this.remove();
+			state = false;
+			monsters[i] = new monster(i);
+			monsters[i].moving();
+			score++;
+			$("#score").html(score);
+			$("#score").html(score);
+			checkLevel();
 		}
 	});
 }
@@ -192,6 +237,7 @@ function blood(x, y) {
 	this.y = y;
 	this.element = $("<div></div>");
 	this.element.css({"background-image" : "url(images/blood.png)", "width": '100px', "height": '94px'});
+	this.element.addClass("blood");
 	$("#game-area").append(this.element);
 	this.element.css({position: "absolute", left: this.x, top: this.y});
 	this.element.fadeOut(100, function() {
