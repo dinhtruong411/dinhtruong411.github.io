@@ -1,6 +1,5 @@
 /*Monster game Javascript*/
 
-
 var	northWest 	= ["-100px", "-94px", "140px", "85px"];
 var	north 		= ["206px", "-94px", "206px", "85px"];
 var	northEast 	= ["510px", "-94px", "270px", "85px"];
@@ -13,9 +12,10 @@ var direction	= [northWest, north, northEast, east, southEast, south, southWest,
 var score = 0;
 var life = 5;
 var speedValue = 2000;
-var stopVar = false;
+var isStop = false;
 var monsters = [];
-
+var isPause = false;
+var isBoom = true;
 
 function btmEffect(x, status) {
 	if (status == "onpress") {
@@ -27,27 +27,84 @@ function btmEffect(x, status) {
 }
 
 function startGame() {
-	monsters[0] = new monster(0);
-	monsters[1] = new monster(1);
+	if (typeof(Storage) !== "undefined") {
+		if (!localStorage.highScoreJQ){
+			localStorage.highScoreJQ = 0;
+		}
+	}
+	else {
+		alert("Sorry! No Web Storage support..")
+	}
+	$("#highScore").html(localStorage.highScoreJQ);
+	play();
 }
 
 
 
 function play() {
 	score = 0;
-	$("#score-area").html(score);
+	$("#score").html(score);
 	life = 5;
 	updateLife();
 	speedValue = 2000;
-	stopVar = false;
+	isStop = false;
+	isPause = false;
+	isBoom = true;
 	monsters = [];
-	$("#0").remove();
-	$("#1").remove();
-	stopVar = false;
-	startGame();
+	$("#game-area").empty();
+	isStop = false;
+	monsters[0] = new monster(0);
+	monsters[0].moving();
+	monsters[1] = new monster(1);
+	monsters[1].moving();
 }
 function pause() {
-	
+	if (!isPause || isStop) {
+		monsters[0].element.stop(true, false);
+		monsters[1].element.stop(true, false);
+		isPause = true;
+	}
+	else {
+		isPause = false;
+		for (i = 0; i < 2; i++) {
+			monsters[i].moving();
+		}
+	}
+}
+
+function boom() {
+	if (isBoom) {
+		$("#0").remove();
+		$("#1").remove();
+		score += 2;
+		$("#score").html(score);
+		monsters[0] = new monster(0);
+		monsters[0].moving();
+		monsters[1] = new monster(1);
+		monsters[1].moving();
+		isBoom = false;
+	}
+}
+
+function addText(content,textId, leftPos, topPos, size, color) {
+	text = $("<b></b>").html(content);
+	$("#game-area").append(text);
+	text.css({'position': 'absolute', 'left': leftPos, 'top': topPos, 'font-size': size, 'color': color});
+	text.attr("id", textId);
+}
+
+
+function gameEnd() {
+	if (score >= localStorage.highScoreJQ) {
+		localStorage.highScoreJQ = score;
+		$("#highScore").html(localStorage.highScoreJQ);
+		addText('CONGRATULATION !!', 'text1', '60px', '120px', '40px', 'red');
+		addText('High Score: ' + score, 'text2', '155px', '220px', '30px', 'red');
+	}
+	else {
+		addText('END !!', 'text1', '200px', '120px', '40px', 'red');
+		addText('Your Score: ' + score, 'text2', '180px', '220px', '30px', 'red');
+	}
 }
 
 
@@ -61,11 +118,13 @@ function checkLevel() {
 	else if (score >= 15 && score < 20) {
 		speedValue = 1000;
 	}
-	else if (score >= 20) {
+	else if (score >= 20 && score < 30) {
 		speedValue = 700;
 	}
+	else if (score >= 30) {
+		speedValue = 620;
+	}
 }
-
 
 
 function monster(i) {
@@ -77,41 +136,47 @@ function monster(i) {
 	this.element.attr("id", i);
 	this.element.css({"background-image" : "url(images/" + this.id + ".png)", "width": '100px', "height": '94px'});
 	var monsterElement = this.element;
-	var  state = true;
+	var state = true;
+	this.animateState = false;
 	$("#game-area").append(this.element);
-	
-	//Set posotion and start animate
 	this.element.css({position: "absolute", left: direction[this.directID][0], top: direction[this.directID][1]});
+	//Set posotion and start animate
+	this.moving = function() {
 	this.element.animate({left: direction[this.directID][2], top: direction[this.directID][3]}, this.speed);
 	this.element.animate({left: direction[this.directID][0], top: direction[this.directID][1]}, this.speed, function() {
 		this.remove();
 		if (state) {
 			monsters[i] = new monster(i);
+			monsters[i].moving();
 			score--;
-			$("#score-area").html(score);
+			$("#score").html(score);
 			checkLevel();
 			life--;
 			updateLife();
 			if (life <= 0) {
-				stopVar = true;
-				$("#" + 1).stop(true, false);
-				$("#" + 0).stop(true, false);
+				isStop = true;
+				$("#1").stop(true, false);
+				$("#0").stop(true, false);
+				gameEnd();
 			}
 		}
 	});
-	
+	}
+
 	this.element.mousedown(function() {
-		if (!stopVar) {
+		if (!isStop && !isPause) {
 			new blood(monsterElement.css("left"), monsterElement.css("top"));
 			monsterElement.stop();
 			this.remove();
 			state = false;
 			monsters[i] = new monster(i);
+			monsters[i].moving();
 			score++;
-			$("#score-area").html(score);
+			$("#score").html(score);
+			$("#score").html(score);
 			checkLevel();
 			if (life <= 0) {
-				stopVar = true;
+				isStop = true;
 				$("#" + tt).stop(false, false);
 				$("#" + i).clearQueue().finish(false, false);
 			}
