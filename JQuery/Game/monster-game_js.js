@@ -17,6 +17,8 @@ var monsters = [];
 var isPause = false;
 var isBoom = true;
 
+
+/*Button effect*/
 function btmEffect(x, status) {
 	if (status == "onpress") {
 		x.src = "images/press-btm.png";
@@ -74,8 +76,7 @@ function pause() {
 
 function boom() {
 	if (isBoom) {
-		$("#0").remove();
-		$("#1").remove();
+		$("#game-area").empty();
 		score += 2;
 		$("#score").html(score);
 		monsters[0] = new monster(0);
@@ -107,7 +108,7 @@ function gameEnd() {
 	}
 }
 
-
+/*Set speed by score*/
 function checkLevel() {
 	if (score < 10) {
 		speedValue = 1500;
@@ -126,7 +127,8 @@ function checkLevel() {
 	}
 }
 
-
+/*Monster Object*/
+//Moving random direction and with speed by level
 function monster(i) {
 	this.increValue = score*100;
 	this.id = Math.floor((Math.random() * 4) + 1);
@@ -145,7 +147,7 @@ function monster(i) {
 	this.element.animate({left: direction[this.directID][2], top: direction[this.directID][3]}, this.speed);
 	this.element.animate({left: direction[this.directID][0], top: direction[this.directID][1]}, this.speed, function() {
 		this.remove();
-		if (state) {
+		if (state && !isStop && !isPause) {
 			monsters[i] = new monster(i);
 			monsters[i].moving();
 			score--;
@@ -162,7 +164,7 @@ function monster(i) {
 		}
 	});
 	}
-
+	//handle click event
 	this.element.mousedown(function() {
 		if (!isStop && !isPause) {
 			new blood(monsterElement.css("left"), monsterElement.css("top"));
@@ -184,6 +186,7 @@ function monster(i) {
 	});
 }
 
+//Blood appear, fade out and then remove.
 function blood(x, y) {
 	this.x = x;
 	this.y = y;
