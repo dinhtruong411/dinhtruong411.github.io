@@ -111,28 +111,22 @@ h4{
 	width:auto;
 	text-align:left;
 	display:block;
-	}	
+	}
 h4{
 	padding-left:22px;
 	
-	}	
+	}
 
 /*Truong411*/
-.right {
+.right, .left {
 	float: none !important;
 }
-.left {
-	float: none !important;
-}
-.content_area_tr411 img {
+.content_area_tr411 img, .aces_img_tr411, .access2 .img_group_tr411 {
 	margin: auto;
-	display: block;
+	display: block !important;
 	margin-bottom: 10px;
 }
-.img_spec {
-	display: inline-block;
-}
-.img_group_tr411{
+.img_group_tr411, .img_spec{
 	display: inline-block;
 }
 .next_img {
@@ -141,4 +135,11 @@ h4{
 .down_img {
 	display: block;
 }
-
+.text_icon_tr411 {
+	margin: 0 5px 0 0 !important;
+	float: left;
+}
+.sp_max_width {
+	width: 100%;
+}
+/*End Truong411*/

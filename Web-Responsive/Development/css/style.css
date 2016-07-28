@@ -625,82 +625,122 @@ h4{
     text-align: center;
     text-decoration: none;
     width: 80px;
-}
+	}
 #page-top a:hover {
 	background: #ffb452;
 	text-decoration: none;
-}	
+	}	
 	
 /*Truong411*/
 .right {
 	float: right;
-}
+	}
 .left {
 	float: left;
-}
+	}
 .center {
 	display: block;
 	margin: auto;
-}
+	}
 .left_tab {
 	margin-left: 10%;
-}
+	}
 .right_tab {
 	margin-right: 10%;
-}
+	}
 .red_text {
 	color: red;
-}
+	}
 .clear_both {
 	clear: both;
-}
+	}
 .text_center_tr411 {
 	text-align: center;
-}
+	}
 .max_width {
 	width: 100%;
-}
+	}
 .content_area_tr411 {
 	text-align: justify;
 	width: 100%;
 	font-size: 14px;
 	margin-bottom: 20px;
-}
+	overflow: auto;
+	}
 .content_area_tr411 ul {
 	list-style-type: circle;
 	padding-left: 15%;
 	margin-bottom: 55px;
-}
+	}
 .content_area_tr411 strong {
 	margin-left: -7%;
-}
+	}
 .content_area_tr411 p {
 	margin-bottom: 20px;
-}
+	}
 .img_spec {
 	margin: 5px;
-}
+	}
 .top_page_btn_tr411 {
 	float: right;
 	width: 100%
-}
+	}
 .left_content_img_tr411 {
 	margin: 0 15px 75px 0;
-}
+	}
 .right_content_img_tr411 {
 	margin: 0 0 75px 15px;
-}
+	}
 .img_btn_tr411 {
 	margin: 20px 0 20px 0;
 	display: block;
-}
+	}
 .img_group_tr411 {
 	margin-bottom: 30px;
 	overflow: auto;
-}
+	}
 .next_img {
 	margin: 75px 10px 75px 10px;
-}
+	}
 .down_img {
 	display: none;
+	}
+.question_tr411 {
+	background-color: #f5b666;
+	background-image: url(../images/qa/q.gif);
+	font-weight: bold;
+	}
+.question_tr411 p, .answer_tr411 p {
+	margin: 5px 0 5px 35px;
+	}
+.answer_tr411 {
+	background-image: url(../images/qa/a.gif);
+	}
+.answer_tr411, .question_tr411 {
+	background-repeat: no-repeat;
+	margin: 0 0 5px 5%;
+	overflow: auto;
+	min-height: 30px;
+	text-align: justify;
+	}
+.access1 .img_group_tr411 {
+	width: 100%;
+	max-width: 517px;
+	}
+.aces_img_tr411 {
+	max-width: 330px;
+	width: 100%;
+	display: inline-block;
+	}
+.access1 p, .aces_img_tr411 p {
+	margin: 10px 3% 10px 3%;
+	}
+
+.access1 img {
+	width: 100%;
+	}
+.text_icon_tr411 {
+	margin: 0 10px 0 0;
+	float: left;
 }
+/*End Truong411*/
