@@ -40,6 +40,8 @@ function startGame() {
     $("#highScore").html(localStorage.highScoreJQ);
     
     $("#game-area").mousedown(function() {
+        // if after click into Game area blood not appear
+        // it is outsite monster click. we sub life and score by 1
         if (!isPause && !isStop) {
             var numberOfChild = $("#game-area").children(".blood").length;
             if (numberOfChild < 1) {
@@ -180,25 +182,25 @@ function monster(i) {
     this.element.css({position: "absolute", left: direction[this.directID][0], top: direction[this.directID][1]});
     //Set posotion and start animate
     this.moving = function() {
-    this.element.animate({left: direction[this.directID][2], top: direction[this.directID][3]}, this.speed);
-    this.element.animate({left: direction[this.directID][0], top: direction[this.directID][1]}, this.speed, function() {
-        this.remove();
-        if (state && !isStop && !isPause) {
-            monsters[i] = new monster(i);
-            monsters[i].moving();
-            score--;
-            $("#score").html(score);
-            checkLevel();
-            life--;
-            updateLife();
-            if (life <= 0) {
-                isStop = true;
-                $("#1").stop(true, false);
-                $("#0").stop(true, false);
-                gameEnd();
+        this.element.animate({left: direction[this.directID][2], top: direction[this.directID][3]}, this.speed);
+        this.element.animate({left: direction[this.directID][0], top: direction[this.directID][1]}, this.speed, function() {
+            this.remove();
+            if (state && !isStop && !isPause) {
+                monsters[i] = new monster(i);
+                monsters[i].moving();
+                score--;
+                $("#score").html(score);
+                checkLevel();
+                life--;
+                updateLife();
+                if (life <= 0) {
+                    isStop = true;
+                    $("#1").stop(true, false);
+                    $("#0").stop(true, false);
+                    gameEnd();
+                }
             }
-        }
-    });
+        });
     }
     //handle click event
     this.element.mousedown(function() {
@@ -215,7 +217,7 @@ function monster(i) {
             checkLevel();
         }
     });
-    this.element.on("tap", function(){
+    this.element.on("tap", function() {
         if (!isStop && !isPause) {
             new blood(monsterElement.css("left"), monsterElement.css("top"));
             monsterElement.stop();
@@ -236,7 +238,7 @@ function blood(x, y) {
     this.x = x;
     this.y = y;
     this.element = $("<div></div>");
-    this.element.css({"background-image" : "url(images/blood.png)", "width": '100px', "height": '94px'});
+    this.element.css({"background-image" : "url(images/blood.png)", "width": '100px', "height": '94px', "z-index": '-10'});
     this.element.addClass("blood");
     $("#game-area").append(this.element);
     this.element.css({position: "absolute", left: this.x, top: this.y});
