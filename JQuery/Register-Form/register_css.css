@@ -2,18 +2,18 @@
 
 
 #container {
-	position: relative;
-	width: 590px;
-	border: 1px solid #007400;
-	box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.5);
-	margin: 0 auto;
+    position: relative;
+    width: 590px;
+    border: 1px solid #007400;
+    box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.5);
+    margin: 0 auto;
 }
 
 #logo {
-	margin: 10px 0px 10px 185px;
+    margin: 10px 0px 10px 185px;
 }
 
 #info, #status {
-	color: #007400;
-	margin: 15px 140px 0px 140px;
+    color: #007400;
+    margin: 15px 140px 0px 140px;
 }

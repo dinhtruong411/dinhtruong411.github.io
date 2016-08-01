@@ -26,7 +26,7 @@ div.nav{
 	padding: 4px 0;
 	min-height: 42px;
 	z-index: 999999;
-	display:inline-block;	
+	display:inline-block;
 }
 .mean-container a.meanmenu-reveal {
 	width: 22px;
@@ -56,7 +56,7 @@ div.nav{
 	float: left;
 	width: 100%;
 	margin-top: 44px;
-	height:auto;	
+	height:auto;
 }
 .mean-container .mean-nav ul {
 	padding: 0;
@@ -91,7 +91,7 @@ div.nav{
 	}
 .mean-container .mean-nav ul li.menu_1 a{
 	background:url(../images/menu_1.jpg) no-repeat center center;
-	}	
+	}
 .mean-container .mean-nav ul li.menu_2 a{
 	background:url(../images/menu_2.jpg) no-repeat center center;
 	}
@@ -106,7 +106,7 @@ div.nav{
 	}
 .mean-container .mean-nav ul li.menu_6 a{
 	background:url(../images/menu_6.jpg) no-repeat center center
-	}	
+	}
 .mean-container .mean-nav ul li.menu_7 a{
 	background:url(../images/menu_7.jpg) no-repeat center center
 	}
@@ -114,7 +114,7 @@ div.nav{
 .mean-container .mean-nav ul li.menu_1 a:hover,
 .mean-container .mean-nav ul li.menu_1 a.active{
 	background:url(../images/menu_1_hover.jpg) no-repeat center center;
-	}	
+	}
 .mean-container .mean-nav ul li.menu_2 a:hover,
 .mean-container .mean-nav ul li.menu_2 a.active{
 	background:url(../images/menu_2_hover.jpg) no-repeat center center;

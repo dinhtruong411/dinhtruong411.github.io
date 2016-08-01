@@ -1,36 +1,35 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-	<title>Monster Game</title>
-	<meta content="text/html; charset=UTF-8" http-equiv="content-type"/>
-	<link rel="stylesheet" type="text/css" href="monster-game_css.css" />
-	<script type="text/javascript" src="monster-game_js.js"></script>
+    <title>Monster Game</title>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type"/>
+    <link rel="stylesheet" type="text/css" href="monster-game_css.css" />
+    <script type="text/javascript" src="monster-game_js.js"></script>
 </head>
 <body>
-	<div id="container">
-		<div id="images-area" >		
-		<img id="monster-1" src="images/yasuo.png" alt="monster1"/>
-		<img id="monster-2" src="images/teemo.png" alt="monster2"/>
-		<img id="monster-3" src="images/zed.png" alt="monster3"/>
-		<img id="monster-4" src="images/mazahar.png" alt="monster4"/>
-		<img id="blood" src="images/blood.png" alt="blood"/>
-		<img id="play-screen" src="images/play-screen.png" alt="blood"/>
-		</div>
-		<canvas id="game-area"></canvas>
-		<div id="button-area">
-			<img onClick="reStart()" onmousedown="btmEffect(this, 'onpress')" onmouseup="btmEffect(this, 'unpress')" onmouseout="btmEffect(this, 'unpress')" id="play-btm" src="images/unpress-btm.png" alt=""/>
-			<img onClick="pause()" onmousedown="btmEffect(this, 'onpress')" onmouseup="btmEffect(this, 'unpress')" onmouseout="btmEffect(this, 'unpress')" id="pause-btm" src="images/unpress-btm.png" alt=""/>
-			<img onClick="boom()" onmousedown="btmEffect(this, 'onpress')" onmouseup="btmEffect(this, 'unpress')" onmouseout="btmEffect(this, 'unpress')" id="boom-btm" src="images/unpress-btm.png" alt=""/>
-		</div>
-		<div id="life-area">
-		</div>
-		<div id="score-area">
-		<span>Score: <span id="score"></span></span><br/>
-		<span>High Score: <span id="highScore"></span></span>
-		</div>
-	</div>
-<script>
-startScreen();
+    <div id="container">
+            <div id="images-area" >
+            <img id="monster-1" src="images/yasuo.png" alt="monster1"/>
+            <img id="monster-2" src="images/teemo.png" alt="monster2"/>
+            <img id="monster-3" src="images/zed.png" alt="monster3"/>
+            <img id="monster-4" src="images/mazahar.png" alt="monster4"/>
+            <img id="blood" src="images/blood.png" alt="blood"/>
+            <img id="play-screen" src="images/play-screen.png" alt="blood"/>
+        </div>
+        <canvas id="game-area"></canvas>
+        <div id="button-area">
+            <img onClick="reStart()" onmousedown="btmEffect(this, 'onpress')" onmouseup="btmEffect(this, 'unpress')" onmouseout="btmEffect(this, 'unpress')" id="play-btm" src="images/unpress-btm.png" alt=""/>
+            <img onClick="pause()" onmousedown="btmEffect(this, 'onpress')" onmouseup="btmEffect(this, 'unpress')" onmouseout="btmEffect(this, 'unpress')" id="pause-btm" src="images/unpress-btm.png" alt=""/>
+            <img onClick="boom()" onmousedown="btmEffect(this, 'onpress')" onmouseup="btmEffect(this, 'unpress')" onmouseout="btmEffect(this, 'unpress')" id="boom-btm" src="images/unpress-btm.png" alt=""/>
+        </div>
+        <div id="life-area"></div>
+        <div id="score-area">
+            <span>Score: <span id="score"></span></span><br/>
+            <span>High Score: <span id="highScore"></span></span>
+        </div>
+    </div>
+<script type="text/javascript">
+    startScreen();
 </script>
 </body>
-</html>	
+</html>

@@ -1,39 +1,39 @@
 /*Monster Game CSS*/
 
 #container {
-	position: relative;
-	background-image: url('images/interface.png');
-	width: 1000px;
-	height: 550px;
-	margin: 0 auto;
-	box-shadow: 0 20px 30px 0 rgba(0, 0, 0, 0.6);
+    position: relative;
+    background-image: url('images/interface.png');
+    width: 1000px;
+    height: 550px;
+    margin: 0 auto;
+    box-shadow: 0 20px 30px 0 rgba(0, 0, 0, 0.6);
 }
 
 #game-area, #image-area {
-	position: relative;	
-	top: 95px;
-	left: 330px;
-	height: 350px;
-	width: 510px;
-	overflow: hidden;
+    position: relative; 
+    top: 95px;
+    left: 330px;
+    height: 350px;
+    width: 510px;
+    overflow: hidden;
 }
 
 #button-area {
-	position: absolute;
-	bottom: 0px;
-	left: 470px;
-	width: 240px;
-	height: 50px;
+    position: absolute;
+    bottom: 0px;
+    left: 470px;
+    width: 240px;
+    height: 50px;
 }
 
 #life-area {
-	background-image: url('images/life-bg.png');
-	background-position: 0px 40px;
-	position: absolute;
-	bottom: 12px;
-	left: 95px;
-	height: 40px;
-	width: 250px;
+    background-image: url('images/life-bg.png');
+    background-position: 0px 40px;
+    position: absolute;
+    bottom: 12px;
+    left: 95px;
+    height: 40px;
+    width: 250px;
 }
 
 #score-area {
@@ -49,8 +49,8 @@
 }
 
 #play-btm, #pause-btm, #boom-btm {
-	margin: 0px 17px 0px 17px;
+    margin: 0px 17px 0px 17px;
 }
 #monster-1, #monster-2, #monster-3, #monster-4, #blood{
-	position: absolute;
-	left: 510px;
+    position: absolute;
+    left: 510px;

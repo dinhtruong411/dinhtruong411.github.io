@@ -1,85 +1,85 @@
 /*Calendar by JQuery*/
-var	month 		= ["January", "February", "March", "April", "May", "June", "Juy", "August", "September", "October", "November", "December"],
-	day			= ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
-	now			= new Date(),
-	idToDay,
-	toDay		= now.getDate(),
-	thisMonth	= now.getMonth(),
-	thisYear	= now.getFullYear(),
-	currentMonth	= thisMonth,
-	currentYear		= thisYear;
+var month       = ["January", "February", "March", "April", "May", "June", "Juy", "August", "September", "October", "November", "December"],
+    day         = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+    now         = new Date(),
+    idToDay,
+    toDay       = now.getDate(),
+    thisMonth   = now.getMonth(),
+    thisYear    = now.getFullYear(),
+    currentMonth    = thisMonth,
+    currentYear     = thisYear;
 
 
 function drawCalendarTable() {
-	var	Table		= $("<table></table>"),
-		buttonBar	= $("<tr></tr>"),
-		dayBar		= $("<tr></tr>");
-		
-	var prevMonthBtn 	= $("<button></button>").text("<"),
-		prevYearBtn		= $("<button></button>").text("<<"),
-		nextMonthBtn	= $("<button></button>").text(">"),
-		nextYearBtn		= $("<button></button>").text(">>");
-		
-	var	monthSelect	= $("<select></select>"),
-		yeatInput 	= $("<input></input>"),
-		dateResult	= $("<input></input>");
-	
-	$("body").append(dateResult);
-	Table.attr("id", "calendar_table");
-	dateResult.attr("id", "date");
-	dateResult.attr("onfocus", "showCalendar()");
-	prevMonthBtn.attr("onClick", "displayMonthCustoms(0, -1)");
-	prevYearBtn.attr("onClick","displayMonthCustoms(-1, 0)");
-	nextMonthBtn.attr("onClick", "displayMonthCustoms(0, 1)");
-	nextYearBtn.attr("onClick","displayMonthCustoms(1, 0)");
-	
-	monthSelect.attr("id","monthSelect");
-	monthSelect.attr("onchange", "displayByMonth(value)");
-	yeatInput.attr("id","yeatInput");
-	yeatInput.attr("onblur", "displayByYear(value)");
+    var Table       = $("<table></table>"),
+        buttonBar   = $("<tr></tr>"),
+        dayBar      = $("<tr></tr>");
 
-	for (i = 0; i < 12; i++) {
-		tmp = $("<option></option>").text(month[i]);
-		tmp.attr("value", i);
-		monthSelect.append(tmp);
-	}
-	merge2Col = $("<th></th>").attr("colspan", "2");
-	buttonBar.append($("<th></th>").append(prevYearBtn));
-	buttonBar.append($("<th></th>").append(prevMonthBtn));
-	buttonBar.append(merge2Col.append(monthSelect));
-	buttonBar.append($("<th></th>").append(yeatInput));
-	buttonBar.append($("<th></th>").append(nextMonthBtn));
-	buttonBar.append($("<th></th>").append(nextYearBtn));
-	Table.append(buttonBar);
-	for (i = 0; i < 7; i++) {
-		dayBar.append($("<th></th>").text(day[i]));
-	}
-	Table.append(dayBar);
-	for (i = 0; i < 42; i++) {
-		dayi = $("<td></td>");
-		dayi.attr("id", i);
-		dayi.attr("onmouseover", "changeTitleColor(id, 1)");
-		dayi.attr("onmouseout", "changeTitleColor(id, 2)");
-		dayi.attr("onClick", "setDate(id)");
-		if (!(i % 7)) {
-			weeki = $("<tr></tr>");
-			dayi.addClass("sun");
-		}
-		weeki.append(dayi);
-		if (!((i + 8) % 7)) {
-			dayi.addClass("sat");
-			Table.append(weeki);
-		}
-	}
-	$("#date").after(Table);
-	displayMonth();
+    var prevMonthBtn    = $("<button></button>").text("<"),
+        prevYearBtn     = $("<button></button>").text("<<"),
+        nextMonthBtn    = $("<button></button>").text(">"),
+        nextYearBtn     = $("<button></button>").text(">>");
+
+    var monthSelect = $("<select></select>"),
+        yeatInput   = $("<input></input>"),
+        dateResult  = $("<input></input>");
+
+    $("body").append(dateResult);
+    Table.attr("id", "calendar_table");
+    dateResult.attr("id", "date");
+    dateResult.attr("onfocus", "showCalendar()");
+    prevMonthBtn.attr("onClick", "displayMonthCustoms(0, -1)");
+    prevYearBtn.attr("onClick","displayMonthCustoms(-1, 0)");
+    nextMonthBtn.attr("onClick", "displayMonthCustoms(0, 1)");
+    nextYearBtn.attr("onClick","displayMonthCustoms(1, 0)");
+
+    monthSelect.attr("id","monthSelect");
+    monthSelect.attr("onchange", "displayByMonth(value)");
+    yeatInput.attr("id","yeatInput");
+    yeatInput.attr("onblur", "displayByYear(value)");
+
+    for (i = 0; i < 12; i++) {
+        tmp = $("<option></option>").text(month[i]);
+        tmp.attr("value", i);
+        monthSelect.append(tmp);
+    }
+    merge2Col = $("<th></th>").attr("colspan", "2");
+    buttonBar.append($("<th></th>").append(prevYearBtn));
+    buttonBar.append($("<th></th>").append(prevMonthBtn));
+    buttonBar.append(merge2Col.append(monthSelect));
+    buttonBar.append($("<th></th>").append(yeatInput));
+    buttonBar.append($("<th></th>").append(nextMonthBtn));
+    buttonBar.append($("<th></th>").append(nextYearBtn));
+    Table.append(buttonBar);
+    for (i = 0; i < 7; i++) {
+        dayBar.append($("<th></th>").text(day[i]));
+    }
+    Table.append(dayBar);
+    for (i = 0; i < 42; i++) {
+        dayi = $("<td></td>");
+        dayi.attr("id", i);
+        dayi.attr("onmouseover", "changeTitleColor(id, 1)");
+        dayi.attr("onmouseout", "changeTitleColor(id, 2)");
+        dayi.attr("onClick", "setDate(id)");
+        if (!(i % 7)) {
+            weeki = $("<tr></tr>");
+            dayi.addClass("sun");
+        }
+        weeki.append(dayi);
+        if (!((i + 8) % 7)) {
+            dayi.addClass("sat");
+            Table.append(weeki);
+        }
+    }
+    $("#date").after(Table);
+    displayMonth();
 }
 
 /*
 Display calendar by month in year
 */
 function displayMonth() {
-	clearTable();
+    clearTable();
     check();
     var firstDay = new Date(currentYear, currentMonth, 1).getDay();
     var numberDays = new Date(currentYear, currentMonth + 1, 0).getDate();
@@ -90,13 +90,13 @@ function displayMonth() {
     };
     if (currentMonth == thisMonth && currentYear == thisYear) {
         idToDay = toDay + firstDay - 1;
-		$("#" + idToDay).css({"color": "#009900", "fontWeight": "bold"});
+        $("#" + idToDay).css({"color": "#009900", "fontWeight": "bold"});
     }
-	else {
-		$("#" + idToDay).css({"color": "black", "fontWeight": "normal"});
+    else {
+        $("#" + idToDay).css({"color": "black", "fontWeight": "normal"});
     };
-	$("#monthSelect").val(currentMonth);
-	$("#yeatInput").val(currentYear);
+    $("#monthSelect").val(currentMonth);
+    $("#yeatInput").val(currentYear);
 }
 
 /*

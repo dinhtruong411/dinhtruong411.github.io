@@ -1,7 +1,7 @@
 @media screen and (max-width: 644px) {
 div.header{
 	float:none;
-	}	
+	}
 div.inner {
 	height: auto;
 	margin: 0 auto;
@@ -12,10 +12,10 @@ div.inner {
 	}
 .phone_pc{
 	display:none !important;
-	}	
+	}
 .phone_sp{
 	display:inline-block !important;
-	}	
+	}
 h1{
 	text-align:center;
 	}
@@ -30,15 +30,14 @@ a.float,
 	}
 img.header_logo{
 	height:auto;
-	}		
-		
+	}
 div.banner{
 	display:none;
 	}
 div.content_1{
 	text-align:left;
 	max-width:100%;
-	}	
+	}
 div.content_1 p strong {
     display: inline-block;
     float: left;
@@ -49,31 +48,30 @@ div.content_1 p strong {
 div.box_1{
 	margin:5px;
 	padding-bottom:5px;
-	}		
+	}
 div.aside{
 	float:none;
 	margin:25px auto;
 	}
 div.aside_box{
 	margin:6px auto;
-	}	
-	
+	}
+
 div.footer_left{
 	margin-top:20px;
-	}	
+	}
 div.footer{
 	background:url(../images/footer_bg.jpg) repeat left top;
-	}	
-	
+	}
 div.menu_footer_2 ul li.menu_1 a{
 	background:url(../images/footer_bullet_2.png) no-repeat scroll left center;
-	}	
+	}
 div.menu_footer_2 ul li{
 	margin:2px 0 2px 8px
-	}	
+	}
 div.menu_footer_1 {
     padding: 20px 0 16px 20px;
-}		
+}
 div.menu_footer_2{
 	display:block;
 	}
@@ -90,13 +88,13 @@ dl.index dd {
 div.f_l,
 div.menu_footer{
 	float:none;
-	}	
+	}
 div.f_l{
 	margin-top:30px;
 	}
 div.menu_footer_1{
 	max-width:288px;
-	}	
+	}
 div.menu_footer_1 ul{
 	max-width:144px;
 	}
@@ -104,7 +102,7 @@ div.copyright {
     line-height: 13px;
     padding: 10px 0 70px;
 }
-/*page*/	
+/*page*/
 h2,
 h3,	
 h4{
@@ -114,32 +112,33 @@ h4{
 	}
 h4{
 	padding-left:22px;
-	
+
 	}
+
 
 /*Truong411*/
 .right, .left {
 	float: none !important;
-}
+	}
 .content_area_tr411 img, .aces_img_tr411, .access2 .img_group_tr411 {
 	margin: auto;
 	display: block !important;
 	margin-bottom: 10px;
-}
+	}
 .img_group_tr411, .img_spec{
 	display: inline-block;
-}
+	}
 .next_img {
 	display: none;
-}
+	}
 .down_img {
 	display: block;
-}
+	}
 .text_icon_tr411 {
 	margin: 0 5px 0 0 !important;
 	float: left;
-}
+	}
 .sp_max_width {
 	width: 100%;
-}
+	}
 /*End Truong411*/
