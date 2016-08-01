@@ -8,52 +8,52 @@ a:hover, a:focus {
     text-decoration : none;
     text-shadow: 0 0 6px #ffffff;
 }
-body{
+body {
     font-family: arial, Times new roman;
     background-color: #121212;
     color: #595959;
     font-size: 0.75em;
 }
-#header{
+#header {
     height: 349px;
     background: url('images/fill_header.jpg');
     position: relative;
     margin: -10px;
 }
-#header img{
+#header img {
     position: absolute;
     left: 3%;
     top: 15.3%;
 }
-#header h1{
+#header h1 {
     position: absolute;
     left: 10.5%;
     top: 18%;
     color: #000;
     font-size: 3.4em;
 }
-#header span{
+#header span {
     color: #595959;
 }
-#body{
+#body {
     margin: -173px 0px 0px 40px;
     width: 723px;
 }
-#menu_bar{
+#menu_bar {
     width: 732px;
     height: 70px;
 }
-.menu_bar_title{
+.menu_bar_title {
     position:relative;
     margin: 15px 5px 10px 5px;
     float: left;
     text-align:center;
 }
-.menu_bar_title span{
+.menu_bar_title span {
     color: #fff;
 }
 
-#left_content{
+#left_content {
     width: 200px;
     height: 320px;
     margin: 70px 20px 0px 10px;
@@ -62,33 +62,33 @@ body{
     background-color: #1f1f1f;
     border: 1px solid #000;
 }
-#upper_left{
+#upper_left {
     border-top: 1px solid #7e7e7e;
     padding: 15px 10px 0px 10px;
 }
-#lower_left{
+#lower_left {
     border-top: 1px solid #2c2c2c;
     padding: 15px 10px 0px 10px;
     margin-top: 65px;
 }
-#lower_left ul{
+#lower_left ul {
     list-style-image: url("images/arr.gif");
     margin-left: -27px;
     text-decoration: underline;
     color: #707070;
 }
-#lower_left li{
+#lower_left li {
     margin: 5px 0px 10px 0px;
 }
-#right_content{
+#right_content {
     width: 430px;
     margin: 70px 0px 0px 0px;
     float: right;
 }
-#right_content p{
+#right_content p {
     font-size: 10px;
 }
-#footer{
+#footer {
     width: 723px;
     border-top: 1px dotted #2c2c2c;
     margin-top: 65px;
@@ -97,26 +97,26 @@ body{
     padding: 40px 20px 0px 10px;
     font-size: 10px;
 }
-.square{
+.square {
     width: 115px;
     height: 18px;
     background-color: #2c2c2c;
     margin-top: 20px;
 }
-.info{
+.info {
     width: 350px;
     float: left;
     margin: 10px 10px 10px 10px;
 }
-.launch_web{
+.launch_web {
     border-top: 1px dotted #2c2c2c;
     width: 350px;
     float: left;
 }
-.launch_web ul{
+.launch_web ul {
     list-style-image: url('images/info.gif');
     margin-left: -22px;
 }
-.launch_web span{
+.launch_web span {
     color: #fff;
 }

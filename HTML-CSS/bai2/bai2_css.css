@@ -1,100 +1,98 @@
 ﻿/*Bai 2 RUNSYSTEM CSS*/
-body{
-font-family: Verdana, Arial, Helvetica, Sans-serif;
-background-color: #2D2F35;
+body {
+	font-family: Verdana, Arial, Helvetica, Sans-serif;
+	background-color: #2D2F35;
 }
-p{
-text-align:justify;
-color: #FFFFFF;
-font-size: 14px;
+p {
+	text-align:justify;
+	color: #FFFFFF;
+	font-size: 14px;
 }
-h2{
-font-size: 18px;
-color:yellow;
+h2 {
+	font-size: 18px;
+	color:yellow;
 }
-#container{
-width:1200px;
-margin: 0 auto;
-border: 1px solid #474A51;
+#container {
+	width:1200px;
+	margin: 0 auto;
+	border: 1px solid #474A51;
 }
-#header{
-background-color:#2D2F35; 
-border-bottom: 2px solid #474A51;
-height:111px;
+#header {
+	background-color:#2D2F35; 
+	border-bottom: 2px solid #474A51;
+	height:111px;
 }
 
-#next_header{
-background-color: #2D2F35;
-height:300px; 
-width:1200px; 
-background-image: url(bg_home_intro.gif);
-background-repeat: repeat-x;
-border-bottom: 2px solid #474A51;
+#next_header {
+	background-color: #2D2F35;
+	height:300px;
+	width:1200px;
+	background-image: url(bg_home_intro.gif);
+	background-repeat: repeat-x;
+	border-bottom: 2px solid #474A51;
 }
-#image_bg{
-background-color: #2D2F35;
-width:1200px;
-height:127px;
-border-bottom: 2px solid #474A51;
+#image_bg {
+	background-color: #2D2F35;
+	width:1200px;
+	height:127px;
+	border-bottom: 2px solid #474A51;
 }
-#information{
-position: relative;
-background-color: #2D2F35;
-border-bottom: 2px solid #474A51;
-width:1200px;
-height: 300px;
+#information {
+	position: relative;
+	background-color: #2D2F35;
+	border-bottom: 2px solid #474A51;
+	width:1200px;
+	overflow: auto;
 }
-#footer{
-background: #24262A url(bg_footer.gif) center center no-repeat;
-width:1200px;
-height:75px;
-margin-top:-10px;
+#footer {
+	background: #24262A url(bg_footer.gif) center center no-repeat;
+	width:1200px;
+	height:75px;
+	margin-top:-10px;
 }
-.information{
-width:400px;
-height:300px;
-float:left;
-margin-left:100px;
+.information {
+	width:400px;
+	height:300px;
+	float:left;
+	margin-left:100px;
 }
-.information1{
-width:400px;
-height:300px;
-float:left;
-margin-left:100px;
-background: url(home_services_bg_design.gif) right bottom no-repeat;
+.information1 {
+	width:400px;
+	float:left;
+	margin-left:100px;
+	background: url(home_services_bg_design.gif) right bottom no-repeat;
 }
-.information2{
-width:400px;
-height:300px;
-float:right;
-margin-right:100px;
-background: url(home_services_bg_marketing.gif) top left no-repeat;
+.information2 {
+	width:400px;
+	float:right;
+	margin-right:100px;
+	background: url(home_services_bg_marketing.gif) top left no-repeat;
 }
-.img_next_header{
-background-image: url(bg_home_intro.gif);
-height:300px; 
-width:500px; 
-float: right;
-margin-right:100px;
+.img_next_header {
+	background-image: url(bg_home_intro.gif);
+	height:300px;
+	width:500px;
+	float: right;
+	margin-right:100px;
 }
-.image_show{
-margin: 0 auto;
-width:920px;
-height:127px;
+.image_show {
+	margin: 0 auto;
+	width:920px;
+	height:127px;
 }
-.image{
-position:relative;
-margin: 15px 5px 10px 5px;
-width: 220px;
-height: 102px;
-float: left;
+.image {
+	position:relative;
+	margin: 15px 5px 10px 5px;
+	width: 220px;
+	height: 102px;
+	float: left;
 }
-.number_icon{
-position: absolute;
-top:0px;
-right:0px;
+.number_icon {
+	position: absolute;
+	top:0px;
+	right:0px;
 }
-.footer_font{
-text-align:center;
-font-size:10px;
+.footer_font {
+	text-align:center;
+	font-size:10px;
 }
