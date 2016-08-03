@@ -1,9 +1,9 @@
 ﻿/*Calendar CSS*/
-table , th {
+table , th{
     border: 1px solid #000;
 }
 
- td {
+td {
     border: 1px dotted #123456;
     width: 60px;
     height: 20px;
@@ -17,9 +17,13 @@ table .sun {
 table .sat {
     color: blue;
 }
-
-table input[type=text], table button {
+table input {
     width: 58px;
     height: 18px;
+    text-align: center;
+}
+table button {
+    height: 24px;
+    width: 58px;
     text-align: center;
 }

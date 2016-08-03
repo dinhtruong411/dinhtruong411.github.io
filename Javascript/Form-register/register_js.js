@@ -41,7 +41,6 @@ function checkUsername() {
         xhttp.open("GET", "check_login.php?user=" + user + "&mode=" + 'checkUsername', true);
         xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xhttp.send();
-
     }
     else {
         document.getElementById("status-Username").innerHTML = "Username length min 8 letter";
@@ -67,9 +66,9 @@ function checkPassword() {
 
 /*--checkSimilarPass--*/
 function checkSimilarPass() {
-     var pass = document.getElementById("input-Password").value;
-     var rePass = document.getElementById("input-RePassword").value;
-     if (pass == rePass) {
+    var pass = document.getElementById("input-Password").value;
+    var rePass = document.getElementById("input-RePassword").value;
+    if (pass == rePass) {
         document.getElementById("status-RePassword").innerHTML = "Valid";
         document.getElementById("status-RePassword").style.color = "green";
         validCount[2] = 1;

@@ -1,4 +1,4 @@
-﻿/*Calendar JS*/
+﻿﻿/*Calendar JS*/
 var idToDay;     // var mark today position
 var Now = new Date();
 var toDay = Now.getDate();

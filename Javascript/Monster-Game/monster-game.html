@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
     <meta content="text/html; charset=UTF-8" http-equiv="content-type"/>
-    <title>Monster Game</title>
+    <title>Monster Game - Javascript</title>
     <link rel="stylesheet" type="text/css" href="monster-game_css.css" />
     <script type="text/javascript" src="monster-game_js.js"></script>
 </head>
 <body>
     <div id="container">
-            <div id="images-area" >
+        <div id="images-area" >
             <img id="monster-1" src="images/yasuo.png" alt="monster1"/>
             <img id="monster-2" src="images/teemo.png" alt="monster2"/>
             <img id="monster-3" src="images/zed.png" alt="monster3"/>
@@ -18,9 +18,12 @@
         </div>
         <canvas id="game-area"></canvas>
         <div id="button-area">
-            <img onClick="reStart()" onmousedown="btmEffect(this, 'onpress')" onmouseup="btmEffect(this, 'unpress')" onmouseout="btmEffect(this, 'unpress')" id="play-btm" src="images/unpress-btm.png" alt=""/>
-            <img onClick="pause()" onmousedown="btmEffect(this, 'onpress')" onmouseup="btmEffect(this, 'unpress')" onmouseout="btmEffect(this, 'unpress')" id="pause-btm" src="images/unpress-btm.png" alt=""/>
-            <img onClick="boom()" onmousedown="btmEffect(this, 'onpress')" onmouseup="btmEffect(this, 'unpress')" onmouseout="btmEffect(this, 'unpress')" id="boom-btm" src="images/unpress-btm.png" alt=""/>
+            <img onClick="reStart()" onmousedown="btmEffect(this, 'onpress')" onmouseup="btmEffect(this, 'unpress')"
+            onmouseout="btmEffect(this, 'unpress')" id="play-btm" src="images/unpress-btm.png" alt=""/>
+            <img onClick="pause()" onmousedown="btmEffect(this, 'onpress')" onmouseup="btmEffect(this, 'unpress')"
+            onmouseout="btmEffect(this, 'unpress')" id="pause-btm" src="images/unpress-btm.png" alt=""/>
+            <img onClick="boom()" onmousedown="btmEffect(this, 'onpress')" onmouseup="btmEffect(this, 'unpress')"
+            onmouseout="btmEffect(this, 'unpress')" id="boom-btm" src="images/unpress-btm.png" alt=""/>
         </div>
         <div id="life-area"></div>
         <div id="score-area">
@@ -28,8 +31,8 @@
             <span>High Score: <span id="highScore"></span></span>
         </div>
     </div>
-<script type="text/javascript">
-    startScreen();
-</script>
+    <script type="text/javascript">
+        startScreen();
+    </script>
 </body>
 </html>
