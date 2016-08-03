@@ -86,7 +86,7 @@ h3 {
 }
 .list_info_ul {
     list-style-image: url('images/arr.gif');
-    margin: -10px 0px 0px 10px;
+    margin: -5px 0px 0px 8px;
     padding-left: 0px;
     text-decoration: underline;
 }

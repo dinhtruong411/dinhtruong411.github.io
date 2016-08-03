@@ -29,7 +29,7 @@
                     <option value="10">November</option>
                     <option value="11">December</option>
                 </select></th>
-            <th><form><input id="year" onblur="displayByYear(value)" type="text" value=""/></form></th>
+            <th id="year_local"></th>
             <th><button id="nextMonthButton" onClick="displayMonthCustoms(0, 1)"> &gt; </button></th>
             <th><button id="nextYearButton" onClick="displayMonthCustoms(1, 0)"> &gt;&gt; </button></th>
         </tr>
@@ -99,6 +99,7 @@
 
     </table>
     <script>
+        createYearSelect();
         displayMonth(0, 0);
     </script>
 </body>

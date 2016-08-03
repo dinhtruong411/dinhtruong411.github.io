@@ -27,3 +27,11 @@ table button {
     width: 58px;
     text-align: center;
 }
+#month {
+    width: 120px;
+    height: 22px;
+}
+#year {
+    width: 58px;
+    height: 22px;
+}

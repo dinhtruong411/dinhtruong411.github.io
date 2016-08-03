@@ -44,13 +44,23 @@ Action when year has been selected
 */
 function displayByYear(year) {
     currentYear = Number(year);
-    if (currentYear >= 200000 || currentYear <= -200000) {
-        alert("Year not valid , (-200000 < year < 200000)");
-        currentYear = thisYear;
-    };
     displayMonth();
 }
 
+
+function createYearSelect() {
+    var yearLocal = document.getElementById("year_local");
+    var yearSelect = document.createElement("select");
+    yearSelect.setAttribute("id", "year");
+    yearSelect.setAttribute("onchange", "displayByYear(value)");
+    for (i = 2050; i >= 1302; i--) {
+        var option = document.createElement("option");
+        option.setAttribute("value", i);
+        option.innerHTML = i;
+        yearSelect.appendChild(option);
+    }
+    yearLocal.appendChild(yearSelect);
+}
 
 /*
 Display previous or next month and year.

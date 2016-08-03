@@ -21,7 +21,7 @@ function drawCalendarTable() {
         nextYearBtn     = $("<button></button>").text(">>");
 
     var monthSelect = $("<select></select>"),
-        yeatInput   = $("<input></input>"),
+        yearSelect   = $("<select></select>"),
         dateResult  = $("<input></input>");
 
     $("body").append(dateResult);
@@ -35,19 +35,27 @@ function drawCalendarTable() {
 
     monthSelect.attr("id","monthSelect");
     monthSelect.attr("onchange", "displayByMonth(value)");
-    yeatInput.attr("id","yeatInput");
-    yeatInput.attr("onblur", "displayByYear(value)");
+    yearSelect.attr("id","yearSelect");
+    yearSelect.attr("onchange", "displayByYear(value)");
 
     for (i = 0; i < 12; i++) {
         tmp = $("<option></option>").text(month[i]);
         tmp.attr("value", i);
         monthSelect.append(tmp);
     }
+
+    for (i = 2050; i >= 1302; i--) {
+        tmp = $("<option></option>").text(i);
+        tmp.attr("value", i);
+        yearSelect.append(tmp);
+    }
+
+
     merge2Col = $("<th></th>").attr("colspan", "2");
     buttonBar.append($("<th></th>").append(prevYearBtn));
     buttonBar.append($("<th></th>").append(prevMonthBtn));
     buttonBar.append(merge2Col.append(monthSelect));
-    buttonBar.append($("<th></th>").append(yeatInput));
+    buttonBar.append($("<th></th>").append(yearSelect));
     buttonBar.append($("<th></th>").append(nextMonthBtn));
     buttonBar.append($("<th></th>").append(nextYearBtn));
     Table.append(buttonBar);
@@ -96,7 +104,7 @@ function displayMonth() {
         $("#" + idToDay).css({"color": "black", "fontWeight": "normal"});
     };
     $("#monthSelect").val(currentMonth);
-    $("#yeatInput").val(currentYear);
+    $("#yearSelect").val(currentYear);
 }
 
 /*

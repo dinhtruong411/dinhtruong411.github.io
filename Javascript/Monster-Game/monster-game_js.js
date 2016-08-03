@@ -292,7 +292,9 @@ function reStart() {
 }
 
 function boom() {
-    isBoom = true;
+	if (!isPause) {
+    	isBoom = true;
+	}
 }
 
 /*
