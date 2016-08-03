@@ -127,6 +127,10 @@ function gameEnd() {
         {
             startGame();
         }
+        else {
+            reqAnimation(gameEnd);
+            myGameArea.x = false;
+        }
     }
     else {
         if (score >= localStorage.highScore) {
