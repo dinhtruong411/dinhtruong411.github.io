@@ -2,80 +2,88 @@
 @media screen and (max-width: 644px) {
 
 .left, .right {
-	float: none !important;
-	margin: auto;
-	display: block;
+    float: none !important;
+    margin: auto;
+    display: block;
 }
 .header {
-	min-width: unset;
-	text-align: center;
+    min-width: unset;
+    text-align: center;
 }
 .phone_pc {
-	display: none;
+    display: none;
 }
 .phone_sp {
-	display: block;
-	max-width: 202px;
-	width: 100%;
+    display: block;
+    max-width: 202px;
+    width: 100%;
 }
 .inner {
-	min-width: unset;
+    min-width: unset;
 }
+
+/*menu*/
 div.menu_footer_2 ul li.menu_1 a{
-	background:url(../images/footer_bullet_2.png) no-repeat scroll left center;
-	}
+    background:url(../images/footer_bullet_2.png) no-repeat scroll left center;
+    }
 div.menu_footer_2 ul li{
-	margin:2px 0 2px 8px
-	}
+    margin:2px 0 2px 8px
+    }
 div.menu_footer_1 {
     padding: 20px 0 16px 20px;
 }
 div.menu_footer_2{
-	display:block;
-	}
+    display:block;
+}
 dl.index dt{
-	float:none;
-	margin-bottom:5px;
-	background:url(../images/bullet_1.jpg) no-repeat scroll left 4px ;
-	}
+    float:none;
+    margin-bottom:5px;
+    background:url(../images/bullet_1.jpg) no-repeat scroll left 4px ;
+}
 dl.index dd {
     display:block;
     padding-left: 23px;
-	width:auto;
+    width:auto;
 }
 div.f_l,
 div.menu_footer{
-	float:none;
-	}
+    float:none;
+}
 div.f_l{
-	margin-top:30px;
-	}
+    margin-top:30px;
+}
 div.menu_footer_1{
-	max-width:288px;
-	}
+    max-width:288px;
+}
 div.menu_footer_1 ul{
-	max-width:144px;
-	}
+    max-width:144px;
+}
 
 /*banner*/
 #banner {
-	display: none;
+    display: none;
 }
 
 /*page*/
 .group1, .group2 {
-	margin: auto !important;
-	display: block !important;
-	margin-bottom: 20px !important;
+    margin: auto !important;
+    display: block !important;
+    margin-bottom: 20px !important;
 }
 .content, .footer {
-	min-width: unset;
+    min-width: unset;
 }
 .content_area dd {
-	padding-left: 15px;
+    padding-left: 15px;
 }
 /*footer*/
+.footer {
+    padding-top: 20px;
+}
 .footer_link_group {
-	display: block;
-	margin: 20px auto;
+    display: block;
+    margin: 20px auto;
+}
+.footer_info p {
+    text-align: center !important;
 }
