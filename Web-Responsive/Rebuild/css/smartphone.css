@@ -18,6 +18,9 @@
 	max-width: 202px;
 	width: 100%;
 }
+.inner {
+	min-width: unset;
+}
 div.menu_footer_2 ul li.menu_1 a{
 	background:url(../images/footer_bullet_2.png) no-repeat scroll left center;
 	}
@@ -65,9 +68,14 @@ div.menu_footer_1 ul{
 	display: block !important;
 	margin-bottom: 20px !important;
 }
-.content {
+.content, .footer {
 	min-width: unset;
 }
 .content_area dd {
 	padding-left: 15px;
+}
+/*footer*/
+.footer_link_group {
+	display: block;
+	margin: 20px auto;
 }
