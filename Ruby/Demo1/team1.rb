@@ -1,21 +1,21 @@
 #!/usr/bin/ruby
 
 #------------------------------------------------------------------------------
-#Exp application of Team_Manager class.
+# Exp application of Team_Manager class.
 #------------------------------------------------------------------------------
 # Tab with 2 spaces
 #------------------------------------------------------------------------------
 
 load 'team_manager.rb'
-#Name list
-names_hash = {'Leader'         => 'Pham Dinh Truong', \
-              'Deputy Leader'  => 'Dang Thi Hoa', \
-              'Member1'        => 'Nguyen Thi Van', \
-              'Member2'        => 'Trinh Thi Tuyet Diem', \
-              'Member3'        => 'Nguyen Thi Hong Van'
+# Name list
+names_hash = { 'Leader'         => 'Pham Dinh Truong', \
+               'Deputy Leader'  => 'Dang Thi Hoa', \
+               'Member1'        => 'Nguyen Thi Van', \
+               'Member2'        => 'Trinh Thi Tuyet Diem', \
+               'Member3'        => 'Nguyen Thi Hong Van'
              }
 
-#Date of birth list
+# Date of birth list
 dobs_array = ['13/02/1993', '19/11/1992', '02/10/1992', '12/05/1993', \
               '09/08/1993']
 

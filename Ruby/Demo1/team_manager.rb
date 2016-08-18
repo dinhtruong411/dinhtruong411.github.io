@@ -1,14 +1,14 @@
 #!usr/bin/ruby
 
 #------------------------------------------------------------------------------
-#Author: dinhtruong411
-#Date: 17/08/2016
+# Author: dinhtruong411
+# Date: 17/08/2016
 #
-#Origin input:
+# Origin input:
 # => name_list: type is Hash with Key is Position and Value is Member's name
 # => dob_list:  type is Array with each element is Date of Birth correspond to
 #               Member's name in name_list
-#Methods:
+# Methods:
 # => search_by_position:
 #   => Input is position's name
 #   => Output is list of member's profile at this position
