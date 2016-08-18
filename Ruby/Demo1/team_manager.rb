@@ -80,9 +80,7 @@ class Team_Manager
     if Team_Manager.Check_valid_date(dob)
       resulePosition = [];
       @name_list.each_key do |element|
-        if element.include? 'Member'
-          resulePosition.push(element)
-        end
+        resulePosition.push(element) if element.include? 'Member'
       end
       id = "Member" + (resulePosition.length + 1).to_s
       @name_list.update({id => name})
