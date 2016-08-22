@@ -19,12 +19,12 @@ names_hash = { 'Leader'         => 'Pham Dinh Truong', \
 dobs_array = ['13/02/1993', '19/11/1992', '02/10/1992', '12/05/1993', \
               '09/08/1993']
 
-projectTeam1 = Team_Manager.new(names_hash, dobs_array)
-projectTeam1.add_member('Vo Thi Tuyet', '18/08/1993')
-projectTeam1.search_by_position('member')
-projectTeam1.search_by_name('van')
-projectTeam1.export('team_list')
-projectTeam1.add_member('Vo Thi Tuyet1', '10/59/1993')
-projectTeam1.add_member('Vo Thi Tuyet2', '10/01/1yy3')
-projectTeam1.add_member('Vo Thi Tuyet3', '29/02/1993')
-projectTeam1.add_member('Vo Thi Tuyet4', '31/04/1993')
+project_team = Team_Manager.new(names_hash, dobs_array)
+project_team.add_member('Vo Thi Tuyet', '18/08/1993')
+project_team.search_by_position('member')
+project_team.search_by_name('van')
+project_team.export('team_list')
+project_team.add_member('Vo Thi Tuyet1', '10/59/1993')
+project_team.add_member('Vo Thi Tuyet2', '10/01/1yy3')
+project_team.add_member('Vo Thi Tuyet3', '29/02/1993')
+project_team.add_member('Vo Thi Tuyet4', '31/04/1993')

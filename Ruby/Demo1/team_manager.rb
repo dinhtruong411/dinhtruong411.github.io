@@ -38,51 +38,51 @@ class Team_Manager
 
   def search_by_position(position)
     position = position.capitalize
-    resulePosition = [];
+    resule_position = [];
     @name_list.each_key do |element|
       if element.include? position
-        resulePosition.push(element)
+        resule_position.push(element)
       end
     end
-    unless resulePosition.empty?
+    if resule_position.empty?
+      puts "#{position} position haven\'t in list"
+    else
       puts "\nList member of #{position} keyword:"
-      resulePosition.each do |element|
+      resule_position.each do |element|
         index = @name_list.keys.index(element)
         Team_Manager.show_profile(index, @name_list, @dob_list)
       end
       puts "\n"
-    else
-      puts "#{position} position haven\'t in list"
     end
   end
 
   def search_by_name(name)
     name = name.capitalize
-    resuleName = [];
+    resule_name = [];
     @name_list.each_value do |element|
       if element.include? name
-        resuleName.push(element)
+        resule_name.push(element)
       end
     end
-    unless resuleName.empty?
+    if resule_name.empty?
+      puts "Nobody has name is #{name}"
+    else
       puts "\nList member of #{name} keyword"
-      resuleName.each do |element|
+      resule_name.each do |element|
         index = @name_list.values.index(element)
         Team_Manager.show_profile(index, @name_list, @dob_list)
       end
       puts "\n"
-    else
-      puts "Nobody has name is #{name}"
     end
   end
 
   def add_member(name, dob)
-    if Team_Manager.Check_valid_date(dob)
-      resulePosition = [];
+    if Team_Manager.check_valid_date(dob)
+      resule_position = [];
       @name_list.each_key do |element|
-        resulePosition.push(element) if element.include? 'Member'
+        resule_position.push(element) if element.include? 'Member'
       end
-      id = "Member" + (resulePosition.length + 1).to_s
+      id = "Member" + (resule_position.length + 1).to_s
       @name_list.update({id => name})
       @dob_list.push(dob)
       puts "#{name} has been added."
@@ -98,18 +98,18 @@ class Team_Manager
 
   def export(file_name)
     begin
-      aFile = File.open(file_name + ".txt", "a")
+      file = File.open(file_name + ".txt", "a")
       File.delete(file_name + ".txt", "a")
       raise
     rescue
-      aFile = File.new(file_name + ".txt", "a")
+      file = File.new(file_name + ".txt", "a")
     ensure
       @name_list.each_key do |element|
         index = @name_list.keys.index(element)
         position = @name_list.keys.at(index)
         name     = @name_list.values.at(index)
         dob      = @dob_list.at(index)
-        aFile.syswrite("#{position} \t #{name} \t #{dob}\n")
+        file.syswrite("#{position} \t #{name} \t #{dob}\n")
       end
     end
   end
@@ -157,7 +157,7 @@ class Team_Manager
     end
   end
 
-  def Team_Manager.Check_valid_date(day)
+  def Team_Manager.check_valid_date(day)
     status = false
     if day.length == 10
       if day.index("/") == 2 && day.rindex("/") == 5
