@@ -18,8 +18,6 @@
 # => add_member: Add new member to name_list, dob_list,
 #                Position default is Member
 #   =>  Input is real name and Date of birth (type: dd/mm/yyyy)
-# => save: save @name_list and @dob_list to names_list and dobs_list
-#   => Input name of variables you want use to save
 # => export: Export data to file file_name.txt
 #   => Input name of file
 #------------------------------------------------------------------------------
@@ -89,11 +87,6 @@ class Team_Manager
     else
       puts 'Add new member failed: Date must real and type dd/mm/yyy'
     end
-  end
-
-  def save(names_list, dobs_list)
-    names_list  = @name_list
-    dobs_list   = @dob_list
   end
 
   def export(file_name)
