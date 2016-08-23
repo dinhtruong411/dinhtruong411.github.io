@@ -50,7 +50,7 @@ class Team_Manager
       puts "\nList member of #{position} keyword:"
       resule_position.each do |element|
         index = @name_list.keys.index(element)
-        Team_Manager.show_profile(index, @name_list, @dob_list)
+        show_profile(index, @name_list, @dob_list)
       end
       puts "\n"
     end
@@ -70,14 +70,14 @@ class Team_Manager
       puts "\nList member of #{name} keyword"
       resule_name.each do |element|
         index = @name_list.values.index(element)
-        Team_Manager.show_profile(index, @name_list, @dob_list)
+        show_profile(index, @name_list, @dob_list)
       end
       puts "\n"
     end
   end
 
   def add_member(name, dob)
-    if Team_Manager.check_valid_date(dob)
+    if check_valid_date(dob)
       resule_position = [];
       @name_list.each_key do |element|
         resule_position.push(element) if element.include? 'Member'
@@ -114,7 +114,7 @@ class Team_Manager
     end
   end
 
-  def Team_Manager.birthday_days_left(day)
+  def birthday_days_left(day)
     dd    = day.slice(0,2).to_i
     mm    = day.slice(3,2).to_i
 
@@ -125,27 +125,21 @@ class Team_Manager
       bd_date = Time.new(bd_year, mm, dd)
     elsif mm > now.month
       bd_date = Time.new(now.year, mm, dd)
-    elsif dd == now.day
-      bd_date = false
     elsif dd < now.day
       bd_year = now.year + 1
       bd_date = Time.new(bd_year, mm, dd)
     else
       bd_date = Time.new(now.year, mm, dd)
     end
-
-    if bd_date
-      ((bd_date - now)/86400).to_i
-    else
-      0
-    end
+    ((bd_date - now)/86400).to_i
   end
+  private :birthday_days_left
 
-  def Team_Manager.show_profile(index, name_list, dob_list)
+  def show_profile(index, name_list, dob_list)
     position = name_list.keys.at(index)
     name     = name_list.values.at(index)
     dob      = dob_list.at(index)
-    bd_days_left = Team_Manager.birthday_days_left(dob)
+    bd_days_left = birthday_days_left(dob)
     puts  "Profile:",
           "Name: #{name}",
           "Position: #{position}",
@@ -156,8 +150,9 @@ class Team_Manager
       puts "#{bd_days_left} days left to birthday"
     end
   end
+  private :show_profile
 
-  def Team_Manager.check_valid_date(day)
+  def check_valid_date(day)
     status = false
     if day.length == 10
       if day.index("/") == 2 && day.rindex("/") == 5
@@ -184,4 +179,5 @@ class Team_Manager
     end
     status
   end
+  private :check_valid_date
 end
