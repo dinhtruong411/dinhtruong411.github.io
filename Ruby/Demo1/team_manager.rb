@@ -85,7 +85,7 @@ class Team_Manager
       @dob_list.push(dob)
       puts "#{name} has been added."
     else
-      puts 'Add new member failed: Date must real and type dd/mm/yyy'
+      puts 'Add new member failed: Date must real and type dd/mm/yyyy'
     end
   end
 
