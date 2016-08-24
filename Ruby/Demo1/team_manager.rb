@@ -91,7 +91,7 @@ class Team_Manager
 
   def export(file_name)
     begin
-      file = File.open(file_name + ".txt", "a")
+      file = File.open(file_name + ".txt", "r")
       File.delete(file_name + ".txt", "a")
       raise
     rescue
