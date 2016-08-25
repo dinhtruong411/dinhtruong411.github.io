@@ -36,7 +36,7 @@ class Team_Manager
 
   def search_by_position(position)
     position = position.capitalize
-    resule_position = [];
+    resule_position = []
     @name_list.each_key do |element|
       if element.include? position
         resule_position.push(element)
@@ -56,7 +56,7 @@ class Team_Manager
 
   def search_by_name(name)
     name = name.capitalize
-    resule_name = [];
+    resule_name = []
     @name_list.each_value do |element|
       if element.include? name
         resule_name.push(element)
@@ -91,7 +91,6 @@ class Team_Manager
 
   def export(file_name)
     begin
-      file = File.open(file_name + ".txt", "a")
       File.delete(file_name + ".txt", "a")
       raise
     rescue
@@ -147,24 +146,34 @@ class Team_Manager
 
   def check_valid_date(day)
     status = false
-    if day.length == 10
-      if day.index("/") == 2 && day.rindex("/") == 5
-        month_31days = ["01", "03", "05", "07", "08", "10", "12"]
-        month_30days = ["04", "06", "09", "11"]
-        dd    = day.slice(0,2).to_i
-        mm    = day.slice(3,2)
-        yyyy  = day.slice(6,4).to_i
+    if day.count('/') == 2
+      removed_slash_day = day.tr('/', '')
+      unless removed_slash_day =~ /\D/
+        if (8..10).include? day.length
+          month_31days = [1, 3, 5, 7, 8, 10, 12]
+          month_30days = [4, 6, 9, 11]
+          first_slash_index = day.index("/")
+          second_slash_index = day.rindex("/")
 
-        if yyyy.to_s.length == 4
-          if month_31days.include? mm
-            status = true if dd >= 1 && dd <= 31
-          elsif month_30days.include? mm
-            status = true if dd >= 1 && dd <= 30
-          elsif mm == "02"
-            if yyyy % 4 == 0
-              status = true if dd >= 1 && dd <= 29
-            else
-              status = true if dd >= 1 && dd <= 28
+          dd_length = first_slash_index
+          mm_length = second_slash_index - first_slash_index - 1
+          yyyy_length = day.length - second_slash_index - 1
+
+          dd = day.slice(0, dd_length).to_i
+          mm = day.slice(first_slash_index +1, mm_length).to_i
+          yyyy = day.slice(second_slash_index + 1, yyyy_length).to_i
+
+          if yyyy.to_s.length == 4
+            if month_31days.include? mm
+              status = true if dd >= 1 && dd <= 31
+            elsif month_30days.include? mm
+              status = true if dd >= 1 && dd <= 30
+            elsif mm == 2
+              if yyyy % 4 == 0
+                status = true if dd >= 1 && dd <= 29
+              else
+                status = true if dd >= 1 && dd <= 28
+              end
             end
           end
         end
