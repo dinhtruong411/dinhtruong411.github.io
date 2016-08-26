@@ -119,9 +119,15 @@ class TeamManager
   #   Input day of birth with format dd/mm/yyyy
   #   Return number of day
   private
-  def birthday_days_left(day)
-    dd    = day.slice(0,2).to_i
-    mm    = day.slice(3,2).to_i
+  def birthday_days_left(date)
+    first_slash_index = date.index('/')
+    second_slash_index = date.rindex('/')
+
+    dd_length = first_slash_index
+    mm_length = second_slash_index - first_slash_index - 1
+
+    dd = date.slice(0, dd_length).to_i
+    mm = date.slice(first_slash_index + 1, mm_length).to_i
 
     now = Time.now
 
