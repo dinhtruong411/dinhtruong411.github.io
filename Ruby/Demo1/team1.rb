@@ -19,7 +19,7 @@ names_hash = { 'Leader'         => 'Pham Dinh Truong',
 dobs_array = ['13/02/1993', '19/11/1992', '02/10/1992', '12/05/1993',
               '09/08/1993']
 
-project_team = TeamManager.new(name_list: names_hash, dob_list: dobs_array)
+project_team = TeamManager.new(name_list: 12, dob_list: 3)
 project_team.add_member(name: 'Ho Thi Hieu', dob: '09/10/1996')
 project_team.add_member(dob: '8/8/1993', name: 'Vo Thi Tuyet')
 project_team.search_by_position('member')

@@ -29,9 +29,11 @@
 
 
 class TeamManager
-  def initialize(name_list:, dob_list:)
-    @name_list = name_list
-    @dob_list = dob_list
+  def initialize(input = {})
+    input.fetch(:name_list) {|k| puts "Please add #{k}"}
+    input.fetch(:dob_list) {|k| puts "Please add #{k}"}
+    @name_list = input[:name_list]
+    @dob_list = input[:dob_list]
   end
 
   # Input is position's name
@@ -81,7 +83,9 @@ class TeamManager
   # add_member: Add new member to name_list, dob_list,
   #             Position default is Member
   #   Input is real name and Date of birth (type: dd/mm/yyyy)
-  def add_member(name:, dob:)
+  def add_member(input = {})
+    input.fetch(:name) {|k| puts "Please add name with key is #{k}"}
+    input.fetch(:dob) {|k| puts "Please add day of birth with key is #{k}"}
     if check_valid_date(dob)
       result_position = []
       @name_list.each_key do |element|
@@ -115,10 +119,11 @@ class TeamManager
     end
   end
 
+  private
   # birthday_days_left: Function count days left to Birthday
   #   Input day of birth with format dd/mm/yyyy
   #   Return number of day
-  private
+  # Is private method
   def birthday_days_left(date)
     first_slash_index = date.index('/')
     second_slash_index = date.rindex('/')
@@ -154,7 +159,7 @@ class TeamManager
   #               Member's name in name_list.
   #   Output: Show name, position, date of birth, days left to birthday
   #           of member at index
-  private
+  # Is private method
   def show_profile(index, name_list, dob_list)
     position = name_list.keys.at(index)
     name     = name_list.values.at(index)
@@ -178,7 +183,7 @@ class TeamManager
   #   Return:
   #     true: if date is valid and real
   #     false: other
-  private
+  # Is private method
   def check_valid_date(date)
     status = false
     if date.count('/') == 2
